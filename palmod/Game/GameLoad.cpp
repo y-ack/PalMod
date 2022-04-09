@@ -53,6 +53,7 @@
 #include "Game_KOF99AE_A.h"
 #include "Game_KOFXI_A.h"
 #include "Game_KOTM_A.h"
+#include "Game_LandMaker_A.h"
 #include "Game_LASTBLADE_A.h"
 #include "Game_LASTBLADE2_A.h"
 #include "Game_MAGICALDROPIII_A.h"
@@ -506,6 +507,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
     case KOTM_A:
     {
         GetRule = &CGame_KOTM_A::GetRule;
+        return TRUE;
+    }
+    case LandMaker_A:
+    {
+        GetRuleCtr = &CGame_LandMaker_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_LandMaker_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_LandMaker_A_DIR::GetRule;
+        GetNextRule = &CGame_LandMaker_A_DIR::GetNextRule;
+
         return TRUE;
     }
     case LASTBLADE_A:
@@ -1269,6 +1279,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     case KOTM_A:
     {
         return new CGame_KOTM_A(nConfirmedROMSize);
+    }
+    case LandMaker_A:
+    {
+        return new CGame_LandMaker_A_DIR(-1);
     }
     case LASTBLADE_A:
     case LASTBLADE_S:

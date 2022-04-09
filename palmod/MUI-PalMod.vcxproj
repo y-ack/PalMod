@@ -272,6 +272,7 @@ link.exe /OUT:"$(TargetDir)EN-US\$(TargetName).exe.mui" /DLL /NOENTRY /MACHINE:X
     <ClCompile Include="Game\Game_KOF99AE_A.cpp" />
     <ClCompile Include="Game\Game_KOFXI_A.cpp" />
     <ClCompile Include="Game\Game_KOTM_A.cpp" />
+    <ClCompile Include="Game\Game_LandMaker_A.cpp" />
     <ClCompile Include="Game\Game_LASTBLADE2_A.cpp" />
     <ClCompile Include="Game\Game_Matrimelee_A.cpp" />
     <ClCompile Include="Game\Game_MMPR_SNES.cpp" />
@@ -405,6 +406,7 @@ link.exe /OUT:"$(TargetDir)EN-US\$(TargetName).exe.mui" /DLL /NOENTRY /MACHINE:X
     <ClInclude Include="Game\Game_KOF99AE_A.h" />
     <ClInclude Include="Game\Game_KOFXI_A.h" />
     <ClInclude Include="Game\Game_KOTM_A.h" />
+    <ClInclude Include="Game\Game_LandMaker_A.h" />
     <ClInclude Include="Game\Game_LASTBLADE2_A.h" />
     <ClInclude Include="Game\Game_Matrimelee_A.h" />
     <ClInclude Include="Game\Game_MMPR_SNES.h" />
@@ -476,6 +478,7 @@ link.exe /OUT:"$(TargetDir)EN-US\$(TargetName).exe.mui" /DLL /NOENTRY /MACHINE:X
     <ClInclude Include="Game\KOF99AE_A_DEF.h" />
     <ClInclude Include="Game\KOFXI_A_DEF.h" />
     <ClInclude Include="Game\KOTM_A_DEF.h" />
+    <ClInclude Include="Game\LandMaker_A_DEF.h" />
     <ClInclude Include="Game\LASTBLADE2_A_DEF.h" />
     <ClInclude Include="Game\Matrimelee_A_DEF.h" />
     <ClInclude Include="Game\MMPR_SNES_DEF.h" />

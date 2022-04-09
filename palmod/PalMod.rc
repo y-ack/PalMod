@@ -412,6 +412,7 @@ BEGIN
                 MENUITEM "King of Fighters 02UM (Steam, BGR555 parts)", ID_LD_KOF02UM_S_BGR555
                 MENUITEM "King of Fighters 02UM (Steam, RGB555 parts, Characters)", ID_LD_KOF02UM_S_RGB555
             END
+            MENUITEM "Land Maker",                      ID_LOADDIRECTORY_LANDMAKER
             MENUITEM "Melty Blood AACC (Steam/Community Port)", ID_LD_MBAACC_S
             MENUITEM "Melty Blood: Type Lumina (Steam)", ID_LD_MBTL_A
             MENUITEM "Million Arthur Arcana Blood (Steam)", ID_LD_MAAB

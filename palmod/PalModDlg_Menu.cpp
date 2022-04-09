@@ -22,8 +22,8 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"We need the dkg_mpr* files from dankuga.zip.";
             break;
         case DBFCI_A:
-            pszExtraInfo = L"For DBFCI, please select the 'games' directory.";
-            break;
+          pszExtraInfo = L"For DBFCI, please select the 'games' directory.";
+          break;
         case GGXXACR_S:
             pszExtraInfo = L"Guilty Gear (Steam): select the \"obj\" folder under \"Resource\\pr\\ver_100\" after decrypting your files.\n\"Resource\\obj\" will not work.";
             break;
@@ -41,6 +41,9 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
         case KOF02UM_S_DIR_BGR555:
         case KOF02UM_S_DIR_RGB555:
             pszExtraInfo = L"Please select the \"Data\" folder under \"The King of Fighters 2002 Unlimited Match\".";
+            break;
+        case LandMaker_A:
+            pszExtraInfo = L"Select \"landmakrj\" with files e61-1*.20 through e61-1*.17";
             break;
         case MAAB_A:
             pszExtraInfo = L"For MAAB, please select the \"flashrom\" folder.\nThe folder is normally located in steamapps\\common\\Million Arthur Arcana Blood.";
