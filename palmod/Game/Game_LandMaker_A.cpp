@@ -41,9 +41,7 @@ CGame_LandMaker_A_DIR::CGame_LandMaker_A_DIR(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = LandMaker_A_NUMUNIT;
     m_nExtraUnit = LandMaker_A_EXTRALOC;
 
-    // You will need to update this once you modify palettes, but PalMod will prompt you to do so.
-    // Exact count will be shown in debug output in the debugger
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 4;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 103;
     m_nTotalPaletteCount = m_nTotalPaletteCountForLandMaker;
     // ** This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
     m_nLowestKnownPaletteRomLocation = 0x15bfc;
@@ -390,7 +388,7 @@ BOOL CGame_LandMaker_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit) {
                     fileSIMM4.Seek(m_nCurrentPaletteROMLocation, CFile::begin);
 
                     for (UINT32 nColorsWritten = 0; nColorsWritten < m_nCurrentPaletteSizeInColors; nColorsWritten++) {
-                        UINT32 nColorValue = m_pppDataBuffer[nUnitCtr][nPalCtr][nColorsWritten];
+                        UINT32 nColorValue = m_pppDataBuffer32[nUnitCtr][nPalCtr][nColorsWritten];
 
                         // le[rgba] -> be[argb]
                         BYTE a = (nColorValue & 0xFF000000) >> 24;
@@ -399,9 +397,9 @@ BOOL CGame_LandMaker_A_DIR::SaveFile(CFile* SaveFile, uint32_t nSaveUnit) {
                         BYTE r = nColorValue & 0xFF;
 
                         fileSIMM1.Write(&a, 1);
-                        fileSIMM3.Write(&r, 1);
-                        fileSIMM4.Write(&g, 1);
-                        fileSIMM5.Write(&b, 1);
+                        fileSIMM2.Write(&r, 1);
+                        fileSIMM3.Write(&g, 1);
+                        fileSIMM4.Write(&b, 1);
                     }
                 }
             }
