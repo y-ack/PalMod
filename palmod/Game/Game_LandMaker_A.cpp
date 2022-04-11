@@ -16,13 +16,21 @@ UINT32 CGame_LandMaker_A_DIR::m_nExpectedGameROMSize = 0x80000; // each
 UINT32 CGame_LandMaker_A_DIR::m_nConfirmedROMSize = -1;
 UINT32 CGame_LandMaker_A_DIR::m_nTotalPaletteCountForLandMaker = 0;
 
-// landmakrj
+// landmakr
 const LPCWSTR c_ppszLandMaker_Files[]{
+    L"e61-19.20",
+    L"e61-18.19",
+    L"e61-17.18",
+    L"e61-16.17",
+};
+// landmakrj
+const LPCWSTR c_ppszLandMaker201J_Files[]{
     L"e61-13.20",
     L"e61-12.19",
     L"e61-11.18",
     L"e61-10.17",
 };
+
 
 CGame_LandMaker_A_DIR::CGame_LandMaker_A_DIR(UINT32 nConfirmedROMSize)
 {
@@ -118,7 +126,6 @@ sDescTreeNode* CGame_LandMaker_A_DIR::InitDescTree()
 {
     //Load extra file if we're using it
     LoadExtraFileForGame(EXTRA_FILENAME_LandMaker_A, &LandMaker_A_EXTRA_CUSTOM, LandMaker_A_EXTRALOC, m_nConfirmedROMSize);
-    //LoadExtraFileForGame(EXTRA_FILENAME_LandMaker_A, nullptr, &LandMaker_A_EXTRA_CUSTOM, LandMaker_A_EXTRALOC, m_nConfirmedROMSize);
 
     uint32_t nUnitCt = LandMaker_A_NUMUNIT + (GetExtraCt(LandMaker_A_EXTRALOC) ? 1 : 0);
     
@@ -161,7 +168,7 @@ sFileRule CGame_LandMaker_A_DIR::GetNextRule() {
     uRuleCtr++;
 
     if (uRuleCtr >= ARRAYSIZE(c_ppszLandMaker_Files)) {
-    uRuleCtr = INVALID_UNIT_VALUE;
+        uRuleCtr = INVALID_UNIT_VALUE;
     }
 
     return NewFileRule;
