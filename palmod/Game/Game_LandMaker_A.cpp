@@ -36,9 +36,9 @@ CGame_LandMaker_A_DIR::CGame_LandMaker_A_DIR(UINT32 nConfirmedROMSize)
 {
     OutputDebugString(L"CGame_LandMaker_A_DIR::CGame_LandMaker_A_DIR: Loading ROM...\n");
 
-    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_16 };
+    createPalOptions = { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX };
     SetAlphaMode(AlphaMode::GameDoesNotUseAlpha);
-    // Set color mode LE RGBA8888: land maker stores BE ARGB8888; but using custom load/save so whatever.
+    // Set color mode LE RGBA8888: land maker stores BE ARGB8888 maybe, but using custom load/save so whatever.
     SetColorMode(ColMode::COLMODE_RGBA8888);
 
     m_nConfirmedROMSize = m_nExpectedGameROMSize * ARRAYSIZE(c_ppszLandMaker_Files);
@@ -49,10 +49,10 @@ CGame_LandMaker_A_DIR::CGame_LandMaker_A_DIR(UINT32 nConfirmedROMSize)
     m_nTotalInternalUnits = LandMaker_A_NUMUNIT;
     m_nExtraUnit = LandMaker_A_EXTRALOC;
 
-    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 103;
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 129;
     m_nTotalPaletteCount = m_nTotalPaletteCountForLandMaker;
     // ** This magic number is used to warn users if their Extra file is trying to write somewhere potentially unusual
-    m_nLowestKnownPaletteRomLocation = 0x15bfc;
+    m_nLowestKnownPaletteRomLocation = 0x15db2; // 0x15bfc for landmakrj
 
     nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
@@ -70,10 +70,8 @@ CGame_LandMaker_A_DIR::CGame_LandMaker_A_DIR(UINT32 nConfirmedROMSize)
 
     nFileAmt = ARRAYSIZE(c_ppszLandMaker_Files);
 
-    //Set the image out display type
     DisplayType = eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT;
-    // Button labels are used for the Export Image dialog
-    pButtonLabelSet = DEF_NOBUTTONS; // Check out the available options in buttondef.h
+    pButtonLabelSet = DEF_NOBUTTONS; // no palette select
 
     //Create the redirect buffer
     rgUnitRedir = new uint32_t[nUnitAmt + 1];
@@ -82,12 +80,6 @@ CGame_LandMaker_A_DIR::CGame_LandMaker_A_DIR(UINT32 nConfirmedROMSize)
     //Create the file changed flag
     PrepChangeTrackingArray();
 }
-
-//
-//  ***************************************************************************************************************************************
-//  You don't need to make any further changes to the rest of this file, other than updating LandMaker to your game's short name.
-//  ***************************************************************************************************************************************
-//
 
 void CGame_LandMaker_A_DIR::InitializeStatics()
 {

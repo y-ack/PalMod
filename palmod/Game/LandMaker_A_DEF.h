@@ -9,7 +9,9 @@
 
 #define LandMaker_A_STRUCTURE(addr) addr, addr + 0x20*4
 #define LandMaker_A_PORTRAIT(addr) addr, addr + 0x40*4
+#define LandMaker_A_CHIBI(addr) addr, addr + 0x20*4
 #define LandMaker_A_TILE(addr) addr, addr + 0x10*4
+#define LandMaker_A_SPARKLE(addr) addr, addr + 0x20*4
 
 // 2.02 O (landmakr) addresses
 // ref table at 0x979ee
@@ -22,6 +24,7 @@ const sGame_PaletteDataset LandMaker_A_HIRYU_PALETTES[] =
     { L"Hiryu Structures - Yellow",        LandMaker_A_STRUCTURE(0x0d2d34) }, // [sic], only yellow unique
     { L"Hiryu/Soumei Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2db4) },
     { L"Hiryu/Soumei Structures - Purple", LandMaker_A_STRUCTURE(0x01d130) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01ceb0) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x029030) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x029130) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x023a30) },
@@ -35,6 +38,7 @@ const sGame_PaletteDataset LandMaker_A_AIFA_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x0194b0) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2e34) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x016fb0) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01a1b0) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x028b30) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x028c30) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x028430) },
@@ -42,6 +46,7 @@ const sGame_PaletteDataset LandMaker_A_AIFA_PALETTES[] =
 const sGame_PaletteDataset LandMaker_A_SOUMEI_PALETTES[] =
 {
     { L"Soumei Structures - Yellow",        LandMaker_A_STRUCTURE(0x01dd30) }, // [sic], only yellow unique
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01b6b0) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x023e30) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x024b30) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x025630) },
@@ -55,6 +60,7 @@ const sGame_PaletteDataset LandMaker_A_RENKI_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x01ddb0) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2eb4) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x01d730) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01bab0) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x027430) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x027330) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x027730) },
@@ -68,6 +74,7 @@ const sGame_PaletteDataset LandMaker_A_YOUEN_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x019ab0) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2f34) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x0197b0) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01c3b0) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x025c30) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x025d30) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x025830) },
@@ -81,6 +88,7 @@ const sGame_PaletteDataset LandMaker_A_KOUKO_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x018cb0) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2fb4) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x018a30) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01f4b0) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x029730) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x029630) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x029d30) },
@@ -94,6 +102,7 @@ const sGame_PaletteDataset LandMaker_A_RINREI_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x0195b0) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d3034) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x019830) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01f030) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x025330) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x025e30) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x025530) },
@@ -107,6 +116,7 @@ const sGame_PaletteDataset LandMaker_A_ROUSHINSHI_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x019a30) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d30b4) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x019130) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01f6b0) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x028030) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x024330) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x024430) },
@@ -120,6 +130,7 @@ const sGame_PaletteDataset LandMaker_A_RANJU_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x019b30) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d3134) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x0183b0) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01f7b0) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x027b30) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x025f30) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x026e30) },
@@ -133,6 +144,7 @@ const sGame_PaletteDataset LandMaker_A_GAIRA_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x018c30) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d31b4) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x018530) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01ee30) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x027d30) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x02a130) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x026f30) },
@@ -148,6 +160,22 @@ const sGame_PaletteDataset LandMaker_A_COMMON_PALETTES[] =
     { L"Tiles - Yellow", LandMaker_A_TILE(0x0199f0) },
     { L"Tiles - Gray",   LandMaker_A_TILE(0x01b370) },
     { L"Tiles - Purple", LandMaker_A_TILE(0x0182f0) },
+    { L"Efx Corner Shine - Red",    LandMaker_A_SPARKLE(0x016830) },
+    { L"Efx Corner Shine - Blue",   LandMaker_A_SPARKLE(0x0165b0) },
+    { L"Efx Corner Shine - Orange", LandMaker_A_SPARKLE(0x0168b0) },
+    { L"Efx Corner Shine - Green",  LandMaker_A_SPARKLE(0x016530) },
+    { L"Efx Corner Shine - L. Blue",LandMaker_A_SPARKLE(0x016630) },
+    { L"Efx Corner Shine - Yellow", LandMaker_A_SPARKLE(0x016730) },
+    { L"Efx Corner Shine - Gray",   LandMaker_A_SPARKLE(0x0167b0) },
+    { L"Efx Corner Shine - Purple", LandMaker_A_SPARKLE(0x0166b0) },
+    { L"Efx Unknown - Red",    LandMaker_A_SPARKLE(0x016c30) },
+    { L"Efx Unknown - Blue",   LandMaker_A_SPARKLE(0x0169b0) },
+    { L"Efx Unknown - Orange", LandMaker_A_SPARKLE(0x016d30) },
+    { L"Efx Unknown - Green",  LandMaker_A_SPARKLE(0x016930) },
+    { L"Efx Unknown - L. Blue",LandMaker_A_SPARKLE(0x016a30) },
+    { L"Efx Unknown - Yellow", LandMaker_A_SPARKLE(0x016b30) },
+    { L"Efx Unknown - Gray",   LandMaker_A_SPARKLE(0x0d27b4) },
+    { L"Efx Unknown - Purple", LandMaker_A_SPARKLE(0x016ab0) },
     { L"Structures - Flash", LandMaker_A_STRUCTURE(0x1d530) },
 };
 
@@ -227,6 +255,7 @@ const sGame_PaletteDataset LandMaker_201J_A_HIRYU_PALETTES[] =
     { L"Hiryu Structures - Yellow",        LandMaker_A_STRUCTURE(0x0d28d4) }, // [sic], only yellow unique
     { L"Hiryu/Soumei Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2954) },
     { L"Hiryu/Soumei Structures - Purple", LandMaker_A_STRUCTURE(0x01cd3c) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01cabc) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x028c3c) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x028d3c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02363c) },
@@ -240,6 +269,7 @@ const sGame_PaletteDataset LandMaker_201J_A_AIFA_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x0190bc) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d29d4) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x016bbc) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x019dbc) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x02873c) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x02883c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02803c) },
@@ -247,6 +277,7 @@ const sGame_PaletteDataset LandMaker_201J_A_AIFA_PALETTES[] =
 const sGame_PaletteDataset LandMaker_201J_A_SOUMEI_PALETTES[] =
 {
     { L"Soumei Structures - Yellow",        LandMaker_A_STRUCTURE(0x01d93c) }, // [sic], only yellow unique
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01b2bc) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x023a3c) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x02473c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02523c) },
@@ -260,6 +291,7 @@ const sGame_PaletteDataset LandMaker_201J_A_RENKI_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x01d9bc) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2a54) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x01d33c) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01b6bc) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x02703c) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x026f3c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02733c) },
@@ -273,6 +305,7 @@ const sGame_PaletteDataset LandMaker_201J_A_YOUEN_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x0196bc) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2ad4) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x0193bc) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01bfbc) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x02583c) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x02593c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02543c) },
@@ -286,6 +319,7 @@ const sGame_PaletteDataset LandMaker_201J_A_KOUKO_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x0188bc) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2b54) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x01863c) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01f0bc) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x02933c) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x02923c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02993c) },
@@ -299,6 +333,7 @@ const sGame_PaletteDataset LandMaker_201J_A_RINREI_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x0191bc) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2bd4) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x01943c) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01ec3c) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x024f3c) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x025a3c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02513c) },
@@ -312,6 +347,7 @@ const sGame_PaletteDataset LandMaker_201J_A_ROUSHINSHI_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x01963c) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2c54) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x018d3c) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01f2bc) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x027c3c) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x023f3c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02403c) },
@@ -325,6 +361,7 @@ const sGame_PaletteDataset LandMaker_201J_A_RANJU_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x01973c) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2cd4) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x017fbc) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01f3bc) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x02773c) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x025b3c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x026a3c) },
@@ -338,6 +375,7 @@ const sGame_PaletteDataset LandMaker_201J_A_GAIRA_PALETTES[] =
     { L"Structures - Yellow", LandMaker_A_STRUCTURE(0x01883c) },
     { L"Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2d54) },
     { L"Structures - Purple", LandMaker_A_STRUCTURE(0x01813c) },
+    { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01ea3c) },
     { L"Portrait 1",     LandMaker_A_PORTRAIT(0x02793c) },
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x029d3c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x026b3c) },
@@ -353,6 +391,22 @@ const sGame_PaletteDataset LandMaker_201J_A_COMMON_PALETTES[] =
     { L"Tiles - Yellow", LandMaker_A_TILE(0x0195fc) },
     { L"Tiles - Gray",   LandMaker_A_TILE(0x01af7c) },
     { L"Tiles - Purple", LandMaker_A_TILE(0x017efc) },
+    { L"Efx Corner Shine - Red",    LandMaker_A_SPARKLE(0x01643c) },
+    { L"Efx Corner Shine - Blue",   LandMaker_A_SPARKLE(0x0161bc) },
+    { L"Efx Corner Shine - Orange", LandMaker_A_SPARKLE(0x0164bc) },
+    { L"Efx Corner Shine - Green",  LandMaker_A_SPARKLE(0x01613c) },
+    { L"Efx Corner Shine - L. Blue",LandMaker_A_SPARKLE(0x01623c) },
+    { L"Efx Corner Shine - Yellow", LandMaker_A_SPARKLE(0x01633c) },
+    { L"Efx Corner Shine - Gray",   LandMaker_A_SPARKLE(0x0163bc) },
+    { L"Efx Corner Shine - Purple", LandMaker_A_SPARKLE(0x0162bc) },
+    { L"Efx Unknown - Red",    LandMaker_A_SPARKLE(0x01683c) },
+    { L"Efx Unknown - Blue",   LandMaker_A_SPARKLE(0x0165bc) },
+    { L"Efx Unknown - Orange", LandMaker_A_SPARKLE(0x01693c) },
+    { L"Efx Unknown - Green",  LandMaker_A_SPARKLE(0x01653c) },
+    { L"Efx Unknown - L. Blue",LandMaker_A_SPARKLE(0x01664c) },
+    { L"Efx Unknown - Yellow", LandMaker_A_SPARKLE(0x01674c) },
+    { L"Efx Unknown - Gray",   LandMaker_A_SPARKLE(0x0d2354) },
+    { L"Efx Unknown - Purple", LandMaker_A_SPARKLE(0x0166bc) },
     { L"Structures - Flash", LandMaker_A_STRUCTURE(0x1d13c) },
 };
 
