@@ -1282,7 +1282,8 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     }
     case LandMaker_A:
     {
-        return new CGame_LandMaker_A_DIR(-1);
+        // nExtraGameData dne for LoadDir, cannot distinguish landmakrj/landmakr
+        return new CGame_LandMaker_A_DIR(-1, nExtraGameData);
     }
     case LASTBLADE_A:
     case LASTBLADE_S:
