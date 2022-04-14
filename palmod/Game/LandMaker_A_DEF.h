@@ -224,7 +224,7 @@ const sDescTreeNode LandMaker_A_COMMON_COLLECTION[] =
     { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_A_COMMON_PALETTES, ARRAYSIZE(LandMaker_A_COMMON_PALETTES) }
 };
 
-const sDescTreeNode LandMaker_A_UNITS[] =
+const sDescTreeNode LandMaker_A_202O_UNITS[] =
 {
     { L"Common", DESC_NODETYPE_TREE, (void*)LandMaker_A_COMMON_COLLECTION, ARRAYSIZE(LandMaker_A_COMMON_COLLECTION) },
     { L"Hiryu", DESC_NODETYPE_TREE, (void*)LandMaker_A_HIRYU_COLLECTION, ARRAYSIZE(LandMaker_A_HIRYU_COLLECTION) },
@@ -239,14 +239,14 @@ const sDescTreeNode LandMaker_A_UNITS[] =
     { L"Gaira", DESC_NODETYPE_TREE, (void*)LandMaker_A_GAIRA_COLLECTION, ARRAYSIZE(LandMaker_A_GAIRA_COLLECTION) },
 };
 
-constexpr auto LandMaker_A_NUMUNIT = ARRAYSIZE(LandMaker_A_UNITS);
+constexpr auto LandMaker_A_202O_NUMUNIT = ARRAYSIZE(LandMaker_A_202O_UNITS);
 
-constexpr auto LandMaker_A_EXTRALOC = LandMaker_A_NUMUNIT;
+constexpr auto LandMaker_A_202O_EXTRALOC = LandMaker_A_202O_NUMUNIT;
 
 
 // 2.01 J (landmakrj) addresses
 // ref table at 0x975ee
-const sGame_PaletteDataset LandMaker_201J_A_HIRYU_PALETTES[] =
+const sGame_PaletteDataset LandMaker_A_201J_HIRYU_PALETTES[] =
 {
     { L"Hiryu/Soumei Structures - Red",    LandMaker_A_STRUCTURE(0x01d5bc) },
     { L"Hiryu/Soumei Structures - Blue",   LandMaker_A_STRUCTURE(0x01d1bc) },
@@ -260,7 +260,7 @@ const sGame_PaletteDataset LandMaker_201J_A_HIRYU_PALETTES[] =
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x028d3c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02363c) },
 };
-const sGame_PaletteDataset LandMaker_201J_A_AIFA_PALETTES[] =
+const sGame_PaletteDataset LandMaker_A_201J_AIFA_PALETTES[] =
 {
     { L"Structures - Red",    LandMaker_A_STRUCTURE(0x019b3c) },
     { L"Structures - Blue",   LandMaker_A_STRUCTURE(0x01793c) },
@@ -274,7 +274,7 @@ const sGame_PaletteDataset LandMaker_201J_A_AIFA_PALETTES[] =
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x02883c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02803c) },
 };
-const sGame_PaletteDataset LandMaker_201J_A_SOUMEI_PALETTES[] =
+const sGame_PaletteDataset LandMaker_A_201J_SOUMEI_PALETTES[] =
 {
     { L"Soumei Structures - Yellow",        LandMaker_A_STRUCTURE(0x01d93c) }, // [sic], only yellow unique
     { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01b2bc) },
@@ -282,7 +282,7 @@ const sGame_PaletteDataset LandMaker_201J_A_SOUMEI_PALETTES[] =
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x02473c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02523c) },
 };
-const sGame_PaletteDataset LandMaker_201J_A_RENKI_PALETTES[] =
+const sGame_PaletteDataset LandMaker_A_201J_RENKI_PALETTES[] =
 {
     { L"Structures - Red",    LandMaker_A_STRUCTURE(0x01d7bc) },
     { L"Structures - Blue",   LandMaker_A_STRUCTURE(0x01d23c) },
@@ -296,7 +296,7 @@ const sGame_PaletteDataset LandMaker_201J_A_RENKI_PALETTES[] =
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x026f3c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02733c) },
 };
-const sGame_PaletteDataset LandMaker_201J_A_YOUEN_PALETTES[] =
+const sGame_PaletteDataset LandMaker_A_201J_YOUEN_PALETTES[] =
 {
     { L"Structures - Red",    LandMaker_A_STRUCTURE(0x019abc) },
     { L"Structures - Blue",   LandMaker_A_STRUCTURE(0x0178bc) },
@@ -310,7 +310,7 @@ const sGame_PaletteDataset LandMaker_201J_A_YOUEN_PALETTES[] =
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x02593c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02543c) },
 };
-const sGame_PaletteDataset LandMaker_201J_A_KOUKO_PALETTES[] =
+const sGame_PaletteDataset LandMaker_A_201J_KOUKO_PALETTES[] =
 {
     { L"Structures - Red",    LandMaker_A_STRUCTURE(0x0199bc) },
     { L"Structures - Blue",   LandMaker_A_STRUCTURE(0x01833c) },
@@ -324,7 +324,7 @@ const sGame_PaletteDataset LandMaker_201J_A_KOUKO_PALETTES[] =
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x02923c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02993c) },
 };
-const sGame_PaletteDataset LandMaker_201J_A_RINREI_PALETTES[] =
+const sGame_PaletteDataset LandMaker_A_201J_RINREI_PALETTES[] =
 {
     { L"Structures - Red",    LandMaker_A_STRUCTURE(0x019a3c) },
     { L"Structures - Blue",   LandMaker_A_STRUCTURE(0x0177bc) },
@@ -338,7 +338,7 @@ const sGame_PaletteDataset LandMaker_201J_A_RINREI_PALETTES[] =
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x025a3c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02513c) },
 };
-const sGame_PaletteDataset LandMaker_201J_A_ROUSHINSHI_PALETTES[] =
+const sGame_PaletteDataset LandMaker_A_201J_ROUSHINSHI_PALETTES[] =
 {
     { L"Structures - Red",    LandMaker_A_STRUCTURE(0x01ab3c) },
     { L"Structures - Blue",   LandMaker_A_STRUCTURE(0x01843c) },
@@ -352,7 +352,7 @@ const sGame_PaletteDataset LandMaker_201J_A_ROUSHINSHI_PALETTES[] =
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x023f3c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x02403c) },
 };
-const sGame_PaletteDataset LandMaker_201J_A_RANJU_PALETTES[] =
+const sGame_PaletteDataset LandMaker_A_201J_RANJU_PALETTES[] =
 {
     { L"Structures - Red",    LandMaker_A_STRUCTURE(0x01a5bc) },
     { L"Structures - Blue",   LandMaker_A_STRUCTURE(0x0183bc) },
@@ -366,7 +366,7 @@ const sGame_PaletteDataset LandMaker_201J_A_RANJU_PALETTES[] =
     { L"Portrait 2",     LandMaker_A_PORTRAIT(0x025b3c) },
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x026a3c) },
 };
-const sGame_PaletteDataset LandMaker_201J_A_GAIRA_PALETTES[] =
+const sGame_PaletteDataset LandMaker_A_201J_GAIRA_PALETTES[] =
 {
     { L"Structures - Red",    LandMaker_A_STRUCTURE(0x018e3c) },
     { L"Structures - Blue",   LandMaker_A_STRUCTURE(0x0180bc) },
@@ -381,7 +381,7 @@ const sGame_PaletteDataset LandMaker_201J_A_GAIRA_PALETTES[] =
     { L"Portrait 3",     LandMaker_A_PORTRAIT(0x026b3c) },
 };
 
-const sGame_PaletteDataset LandMaker_201J_A_COMMON_PALETTES[] =
+const sGame_PaletteDataset LandMaker_A_201J_COMMON_PALETTES[] =
 {
     { L"Tiles - Red",    LandMaker_A_TILE(0x01acbc) },
     { L"Tiles - Blue",   LandMaker_A_TILE(0x0195bc) },
@@ -410,66 +410,66 @@ const sGame_PaletteDataset LandMaker_201J_A_COMMON_PALETTES[] =
     { L"Structures - Flash", LandMaker_A_STRUCTURE(0x1d13c) },
 };
 
-const sDescTreeNode LandMaker_201J_A_HIRYU_COLLECTION[] =
+const sDescTreeNode LandMaker_A_201J_HIRYU_COLLECTION[] =
 {
-    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_HIRYU_PALETTES, ARRAYSIZE(LandMaker_201J_A_HIRYU_PALETTES) }
+    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_HIRYU_PALETTES, ARRAYSIZE(LandMaker_A_201J_HIRYU_PALETTES) }
 };
-const sDescTreeNode LandMaker_201J_A_AIFA_COLLECTION[] =
+const sDescTreeNode LandMaker_A_201J_AIFA_COLLECTION[] =
 {
-    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_AIFA_PALETTES, ARRAYSIZE(LandMaker_201J_A_AIFA_PALETTES) }
+    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_AIFA_PALETTES, ARRAYSIZE(LandMaker_A_201J_AIFA_PALETTES) }
 };
-const sDescTreeNode LandMaker_201J_A_SOUMEI_COLLECTION[] =
+const sDescTreeNode LandMaker_A_201J_SOUMEI_COLLECTION[] =
 {
-    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_SOUMEI_PALETTES, ARRAYSIZE(LandMaker_201J_A_SOUMEI_PALETTES) }
+    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_SOUMEI_PALETTES, ARRAYSIZE(LandMaker_A_201J_SOUMEI_PALETTES) }
 };
-const sDescTreeNode LandMaker_201J_A_RENKI_COLLECTION[] =
+const sDescTreeNode LandMaker_A_201J_RENKI_COLLECTION[] =
 {
-    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_RENKI_PALETTES, ARRAYSIZE(LandMaker_201J_A_RENKI_PALETTES) }
+    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_RENKI_PALETTES, ARRAYSIZE(LandMaker_A_201J_RENKI_PALETTES) }
 };
-const sDescTreeNode LandMaker_201J_A_YOUEN_COLLECTION[] =
+const sDescTreeNode LandMaker_A_201J_YOUEN_COLLECTION[] =
 {
-    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_YOUEN_PALETTES, ARRAYSIZE(LandMaker_201J_A_YOUEN_PALETTES) }
+    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_YOUEN_PALETTES, ARRAYSIZE(LandMaker_A_201J_YOUEN_PALETTES) }
 };
-const sDescTreeNode LandMaker_201J_A_KOUKO_COLLECTION[] =
+const sDescTreeNode LandMaker_A_201J_KOUKO_COLLECTION[] =
 {
-    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_KOUKO_PALETTES, ARRAYSIZE(LandMaker_201J_A_KOUKO_PALETTES) }
+    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_KOUKO_PALETTES, ARRAYSIZE(LandMaker_A_201J_KOUKO_PALETTES) }
 };
-const sDescTreeNode LandMaker_201J_A_RINREI_COLLECTION[] =
+const sDescTreeNode LandMaker_A_201J_RINREI_COLLECTION[] =
 {
-    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_RINREI_PALETTES, ARRAYSIZE(LandMaker_201J_A_RINREI_PALETTES) }
+    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_RINREI_PALETTES, ARRAYSIZE(LandMaker_A_201J_RINREI_PALETTES) }
 };
-const sDescTreeNode LandMaker_201J_A_ROUSHINSHI_COLLECTION[] =
+const sDescTreeNode LandMaker_A_201J_ROUSHINSHI_COLLECTION[] =
 {
-    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_ROUSHINSHI_PALETTES, ARRAYSIZE(LandMaker_201J_A_ROUSHINSHI_PALETTES) }
+    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_ROUSHINSHI_PALETTES, ARRAYSIZE(LandMaker_A_201J_ROUSHINSHI_PALETTES) }
 };
-const sDescTreeNode LandMaker_201J_A_RANJU_COLLECTION[] =
+const sDescTreeNode LandMaker_A_201J_RANJU_COLLECTION[] =
 {
-    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_RANJU_PALETTES, ARRAYSIZE(LandMaker_201J_A_RANJU_PALETTES) }
+    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_RANJU_PALETTES, ARRAYSIZE(LandMaker_A_201J_RANJU_PALETTES) }
 };
-const sDescTreeNode LandMaker_201J_A_GAIRA_COLLECTION[] =
+const sDescTreeNode LandMaker_A_201J_GAIRA_COLLECTION[] =
 {
-    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_GAIRA_PALETTES, ARRAYSIZE(LandMaker_201J_A_GAIRA_PALETTES) }
+    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_GAIRA_PALETTES, ARRAYSIZE(LandMaker_A_201J_GAIRA_PALETTES) }
 };
-const sDescTreeNode LandMaker_201J_A_COMMON_COLLECTION[] =
+const sDescTreeNode LandMaker_A_201J_COMMON_COLLECTION[] =
 {
-    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_COMMON_PALETTES, ARRAYSIZE(LandMaker_201J_A_COMMON_PALETTES) }
-};
-
-const sDescTreeNode LandMaker_201J_A_UNITS[] =
-{
-    { L"Common", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_COMMON_COLLECTION, ARRAYSIZE(LandMaker_201J_A_COMMON_COLLECTION) },
-    { L"Hiryu", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_HIRYU_COLLECTION, ARRAYSIZE(LandMaker_201J_A_HIRYU_COLLECTION) },
-    { L"Aifa", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_AIFA_COLLECTION, ARRAYSIZE(LandMaker_201J_A_AIFA_COLLECTION) },
-    { L"Soumei", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_SOUMEI_COLLECTION, ARRAYSIZE(LandMaker_201J_A_SOUMEI_COLLECTION) },
-    { L"Renki", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_RENKI_COLLECTION, ARRAYSIZE(LandMaker_201J_A_RENKI_COLLECTION) },
-    { L"Youen", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_YOUEN_COLLECTION, ARRAYSIZE(LandMaker_201J_A_YOUEN_COLLECTION) },
-    { L"Kouko", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_KOUKO_COLLECTION, ARRAYSIZE(LandMaker_201J_A_KOUKO_COLLECTION) },
-    { L"Rinrei", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_RINREI_COLLECTION, ARRAYSIZE(LandMaker_201J_A_RINREI_COLLECTION) },
-    { L"Roushinshi", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_ROUSHINSHI_COLLECTION, ARRAYSIZE(LandMaker_201J_A_ROUSHINSHI_COLLECTION) },
-    { L"Ranju", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_RANJU_COLLECTION, ARRAYSIZE(LandMaker_201J_A_RANJU_COLLECTION) },
-    { L"Gaira", DESC_NODETYPE_TREE, (void*)LandMaker_201J_A_GAIRA_COLLECTION, ARRAYSIZE(LandMaker_201J_A_GAIRA_COLLECTION) },
+    { L"Normal", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_COMMON_PALETTES, ARRAYSIZE(LandMaker_A_201J_COMMON_PALETTES) }
 };
 
-constexpr auto LandMaker_201J_A_NUMUNIT = ARRAYSIZE(LandMaker_201J_A_UNITS);
+const sDescTreeNode LandMaker_A_201J_UNITS[] =
+{
+    { L"Common", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_COMMON_COLLECTION, ARRAYSIZE(LandMaker_A_201J_COMMON_COLLECTION) },
+    { L"Hiryu", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_HIRYU_COLLECTION, ARRAYSIZE(LandMaker_A_201J_HIRYU_COLLECTION) },
+    { L"Aifa", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_AIFA_COLLECTION, ARRAYSIZE(LandMaker_A_201J_AIFA_COLLECTION) },
+    { L"Soumei", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_SOUMEI_COLLECTION, ARRAYSIZE(LandMaker_A_201J_SOUMEI_COLLECTION) },
+    { L"Renki", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_RENKI_COLLECTION, ARRAYSIZE(LandMaker_A_201J_RENKI_COLLECTION) },
+    { L"Youen", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_YOUEN_COLLECTION, ARRAYSIZE(LandMaker_A_201J_YOUEN_COLLECTION) },
+    { L"Kouko", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_KOUKO_COLLECTION, ARRAYSIZE(LandMaker_A_201J_KOUKO_COLLECTION) },
+    { L"Rinrei", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_RINREI_COLLECTION, ARRAYSIZE(LandMaker_A_201J_RINREI_COLLECTION) },
+    { L"Roushinshi", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_ROUSHINSHI_COLLECTION, ARRAYSIZE(LandMaker_A_201J_ROUSHINSHI_COLLECTION) },
+    { L"Ranju", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_RANJU_COLLECTION, ARRAYSIZE(LandMaker_A_201J_RANJU_COLLECTION) },
+    { L"Gaira", DESC_NODETYPE_TREE, (void*)LandMaker_A_201J_GAIRA_COLLECTION, ARRAYSIZE(LandMaker_A_201J_GAIRA_COLLECTION) },
+};
 
-constexpr auto LandMaker_201J_A_EXTRALOC = LandMaker_201J_A_NUMUNIT;
+constexpr auto LandMaker_A_201J_NUMUNIT = ARRAYSIZE(LandMaker_A_201J_UNITS);
+
+constexpr auto LandMaker_A_201J_EXTRALOC = LandMaker_A_201J_NUMUNIT;

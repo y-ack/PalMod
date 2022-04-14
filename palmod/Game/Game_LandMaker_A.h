@@ -3,28 +3,38 @@
 #include "LandMaker_A_DEF.h"
 #include "..\ExtraFile.h"
 
+constexpr auto EXTRA_FILENAME_LANDMAKER_A_202O = L"LandMakrE.txt";
+constexpr auto EXTRA_FILENAME_LANDMAKER_A_201J = L"LandMakrjE.txt";
 
 class CGame_LandMaker_A_DIR : public CGameWithExtrasFile
 {
 private:
-    static UINT32 m_nTotalPaletteCountForLandMaker;
+    int m_nBufferSelectedRom = 202;
+    static uint32_t m_nSelectedRom;
+    static UINT32 m_nTotalPaletteCountForLandMaker_202O;
+    static UINT32 m_nTotalPaletteCountForLandMaker_201J;
 
-    static uint32_t rgExtraCountAll[LandMaker_A_NUMUNIT + 1];
-    static uint32_t rgExtraLoc[LandMaker_A_NUMUNIT + 1];
+    static uint32_t rgExtraCountAll_202O[LandMaker_A_202O_NUMUNIT + 1];
+    static uint32_t rgExtraLoc_202O[LandMaker_A_202O_NUMUNIT + 1];
+    static uint32_t rgExtraCountAll_201J[LandMaker_A_201J_NUMUNIT + 1];
+    static uint32_t rgExtraLoc_201J[LandMaker_A_201J_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize; // from each rom chip
     static UINT32 m_nConfirmedROMSize;
 
+    // multiple ROM support
+    void InitDataBuffer() override;
+    void ClearDataBuffer() override;
+    static const sDescTreeNode* GetCurrentUnitSet();
+    static uint32_t GetCurrentExtraLoc();
+    static stExtraDef* GetCurrentExtraDef(int nDefCtr);
+
     void LoadSpecificPaletteData(uint32_t nUnitId, uint32_t nPalId);
     uint32_t GetPaletteCountForUnit(uint32_t nUnitId);
 
-    static constexpr auto EXTRA_FILENAME_LandMaker_A = L"LandMakerE.txt";
-    // no
-    //static constexpr auto LandMaker_A_PRIMARY_ROMNAME = L"LandMaker.ROM"; // the file that your palettes are stored in
-
 public:
-    CGame_LandMaker_A_DIR(UINT32 nConfirmedROMSize = -1);
+    CGame_LandMaker_A_DIR(UINT32 nConfirmedROMSize = -1, int nLandMakerROMToLoad = 202);
     ~CGame_LandMaker_A_DIR(void);
 
     inline UINT32 GetSIMMLocationFromROMLocation(UINT32 nROMLocation);
@@ -42,9 +52,10 @@ public:
     BOOL SaveFile(CFile* SaveFile, uint32_t nSaveUnit) override;
 
     //Static functions / variables
-    static CDescTree MainDescTree;
+    static CDescTree MainDescTree_202O;
+    static CDescTree MainDescTree_201J;
 
-    static sDescTreeNode* InitDescTree();
+    static sDescTreeNode* InitDescTree(int nROMPaletteSetToUse);
 
     //Extra palette function
     static uint32_t GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleOnly = FALSE);
@@ -60,9 +71,13 @@ public:
     static const sGame_PaletteDataset* GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId);
     static const sGame_PaletteDataset* GetSpecificPalette(uint32_t nUnitId, uint32_t nPaletteId);
 
+    uint32_t GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId);
     const sDescTreeNode* GetNodeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId, bool fReturnBasicNodesOnly);
 
     BOOL UpdatePalImg(int Node01 = -1, int Node02 = -1, int Node03 = -1, int Node04 = -1);
 
-    static stExtraDef* LandMaker_A_EXTRA_CUSTOM;
+    UINT32 GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet = nullptr, bool* pfNeedToValidateCRCs = nullptr) override;
+
+    static stExtraDef* LandMaker_A_202O_EXTRA_CUSTOM;
+    static stExtraDef* LandMaker_A_201J_EXTRA_CUSTOM;
 };
