@@ -308,6 +308,7 @@ sFileRule CGame_LandMaker_A_DIR::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
+    // NOTE: cannot switch on m_nSelectedRom at this point in load process, no effect
     switch (m_nSelectedRom)
     {
     case 202:
@@ -507,7 +508,6 @@ void CGame_LandMaker_A_DIR::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t n
             // A bogus palette was requested: this is unrecoverable.
             DebugBreak();
         }
-        // SF2HF does revision shifts here...
     }
     else // LandMaker_A_EXTRALOC
     {

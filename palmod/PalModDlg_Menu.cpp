@@ -22,8 +22,8 @@ void CPalModDlg::OnLoadGameByDirectory(SupportedGamesList nGameFlag)
             pszExtraInfo = L"We need the dkg_mpr* files from dankuga.zip.";
             break;
         case DBFCI_A:
-          pszExtraInfo = L"For DBFCI, please select the 'games' directory.";
-          break;
+            pszExtraInfo = L"For DBFCI, please select the 'games' directory.";
+            break;
         case GGXXACR_S:
             pszExtraInfo = L"Guilty Gear (Steam): select the \"obj\" folder under \"Resource\\pr\\ver_100\" after decrypting your files.\n\"Resource\\obj\" will not work.";
             break;
