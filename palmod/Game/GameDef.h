@@ -175,6 +175,7 @@ enum SupportedGamesList
     HSF2_A,
     FatalFury2_A,
     LandMaker_A,
+    LandMakerJ_A,
     NUM_GAMES // This needs to be last
 };
 
@@ -344,7 +345,8 @@ const WCHAR g_GameFriendlyName[][64] =
     L"BlazBlue: Central Fiction (Steam)",
     L"Hyper Street Fighter 2",
     L"Fatal Fury 2 (Neo-Geo)",
-    L"Land Maker (Taito F3 System Arcade)",
+    L"Land Maker (2.02O, Taito F3 System Arcade)",
+    L"Land Maker (2.01J, Taito F3 System Arcade)",
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

@@ -65,7 +65,12 @@ CGame_LandMaker_A_DIR::CGame_LandMaker_A_DIR(UINT32 nConfirmedROMSize, int nLand
 
     InitializeStatics();
 
-    m_nSelectedRom = nLandMakerROMToLoad;
+    if (nLandMakerROMToLoad == LandMakerJ_A)
+    {
+        m_nSelectedRom = 201;
+    } else {
+        m_nSelectedRom = 202;
+    }
 
     switch (m_nSelectedRom)
     {
@@ -124,7 +129,6 @@ CGame_LandMaker_A_DIR::~CGame_LandMaker_A_DIR(void)
     //Get rid of the file changed flag
     FlushChangeTrackingArray();
 }
-
 
 UINT32 CGame_LandMaker_A_DIR::GetKnownCRC32DatasetsForGame(const sCRC32ValueSet** ppKnownROMSet, bool* pfNeedToValidateCRCs)
 {
@@ -308,18 +312,18 @@ sFileRule CGame_LandMaker_A_DIR::GetRule(uint32_t nUnitId)
 {
     sFileRule NewFileRule;
 
-    // NOTE: cannot switch on m_nSelectedRom at this point in load process, no effect
-    switch (m_nSelectedRom)
-    {
-    case 202:
-    default:
-        // This value is only used for directory-based games
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", c_ppszLandMaker202O_Files[nUnitId & 0xFF]);
-        break;
-    case 201:
-        _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", c_ppszLandMaker201J_Files[nUnitId & 0xFF]);
-        break;
-    }
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", c_ppszLandMaker202O_Files[nUnitId & 0xFF]);
+    NewFileRule.uUnitId = nUnitId;
+    NewFileRule.uVerifyVar = (short int)-1;
+
+    return NewFileRule;
+}
+
+sFileRule CGame_LandMaker_A_DIR::GetRule_201J(uint32_t nUnitId)
+{
+    sFileRule NewFileRule;
+
+    _snwprintf_s(NewFileRule.szFileName, ARRAYSIZE(NewFileRule.szFileName), _TRUNCATE, L"%s", c_ppszLandMaker201J_Files[nUnitId & 0xFF]);
     NewFileRule.uUnitId = nUnitId;
     NewFileRule.uVerifyVar = (short int)-1;
 
@@ -328,10 +332,20 @@ sFileRule CGame_LandMaker_A_DIR::GetRule(uint32_t nUnitId)
 
 sFileRule CGame_LandMaker_A_DIR::GetNextRule() {
     sFileRule NewFileRule = GetRule(uRuleCtr);
-
     uRuleCtr++;
 
     if (uRuleCtr >= ARRAYSIZE(c_ppszLandMaker202O_Files)) {
+        uRuleCtr = INVALID_UNIT_VALUE;
+    }
+
+    return NewFileRule;
+}
+
+sFileRule CGame_LandMaker_A_DIR::GetNextRule_201J() {
+    sFileRule NewFileRule = GetRule_201J(uRuleCtr);
+    uRuleCtr++;
+
+    if (uRuleCtr >= ARRAYSIZE(c_ppszLandMaker201J_Files)) {
         uRuleCtr = INVALID_UNIT_VALUE;
     }
 

@@ -518,6 +518,15 @@ BOOL CGameLoad::SetGame(int nGameFlag)
 
         return TRUE;
     }
+    case LandMakerJ_A:
+    {
+        GetRuleCtr = &CGame_LandMaker_A_DIR::GetRuleCtr;
+        ResetRuleCtr = &CGame_LandMaker_A_DIR::ResetRuleCtr;
+        GetRule = &CGame_LandMaker_A_DIR::GetRule_201J;
+        GetNextRule = &CGame_LandMaker_A_DIR::GetNextRule_201J;
+
+        return TRUE;
+    }
     case LASTBLADE_A:
     case LASTBLADE_S:
     {
@@ -1280,10 +1289,10 @@ CGameClass* CGameLoad::CreateGame(int nGameFlag, UINT32 nConfirmedROMSize, int n
     {
         return new CGame_KOTM_A(nConfirmedROMSize);
     }
+    case LandMakerJ_A:
     case LandMaker_A:
     {
-        // nExtraGameData dne for LoadDir, cannot distinguish landmakrj/landmakr
-        return new CGame_LandMaker_A_DIR(-1, nExtraGameData);
+        return new CGame_LandMaker_A_DIR(-1, (SupportedGamesList)nGameFlag);
     }
     case LASTBLADE_A:
     case LASTBLADE_S:

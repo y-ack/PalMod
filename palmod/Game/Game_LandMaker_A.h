@@ -37,6 +37,8 @@ public:
     CGame_LandMaker_A_DIR(UINT32 nConfirmedROMSize = -1, int nLandMakerROMToLoad = 202);
     ~CGame_LandMaker_A_DIR(void);
 
+    static void SetROMRevision(uint32_t nROMRevisionToLoad);
+    
     inline UINT32 GetSIMMLocationFromROMLocation(UINT32 nROMLocation);
 
     //Static functions
@@ -46,7 +48,9 @@ public:
     static void ResetRuleCtr() { uRuleCtr = 0; };
 
     static sFileRule GetNextRule();
+    static sFileRule GetNextRule_201J();
     static sFileRule GetRule(uint32_t nRuleId);
+    static sFileRule GetRule_201J(uint32_t nUnitId);
 
     BOOL LoadFile(CFile* LoadedFile, uint32_t nSIMMNumber) override;
     BOOL SaveFile(CFile* SaveFile, uint32_t nSaveUnit) override;
