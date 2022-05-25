@@ -502,6 +502,36 @@ void CGame_LandMaker_A_DIR::LoadSpecificPaletteData(uint32_t nUnitId, uint32_t n
             m_nCurrentPaletteROMLocation = paletteData->nPaletteOffset;
             m_nCurrentPaletteSizeInColors = cbPaletteSizeOnDisc / m_nSizeOfColorsInBytes;
             m_pszCurrentPaletteName = paletteData->szPaletteName;
+
+            // shifts for 2.01J
+            if (m_nSelectedRom == 201)
+            {
+                if (m_nCurrentPaletteROMLocation <= 0x11598)
+                {
+                    m_nCurrentPaletteROMLocation -= 0;
+                } else if (m_nCurrentPaletteROMLocation <= 0x13d02)
+                {
+                    m_nCurrentPaletteROMLocation -= 0x4C;
+                } else if (m_nCurrentPaletteROMLocation <= 0x15fb0)
+                {
+                    m_nCurrentPaletteROMLocation -= 0x3AE;
+                } else if (m_nCurrentPaletteROMLocation <= 0x163b0)
+                {
+                    m_nCurrentPaletteROMLocation -= 0x3B4;
+                } else if (m_nCurrentPaletteROMLocation <= 0x91870)
+                {
+                    m_nCurrentPaletteROMLocation -= 0x3F4;
+                } else if (m_nCurrentPaletteROMLocation <= 0xa1564)
+                {
+                    m_nCurrentPaletteROMLocation -= 0x41C;
+                } else if (m_nCurrentPaletteROMLocation <= 0xa1876)
+                {
+                    m_nCurrentPaletteROMLocation -= 0x45E;
+                } else if (m_nCurrentPaletteROMLocation > 0xa1876)
+                {
+                    m_nCurrentPaletteROMLocation -= 0x460;
+                }
+            }
         }
         else
         {
