@@ -10,12 +10,11 @@ uint32_t CGame_LandMaker_A_DIR::uRuleCtr = 0;
 stExtraDef* CGame_LandMaker_A_DIR::LandMaker_A_202O_EXTRA_CUSTOM = nullptr;
 stExtraDef* CGame_LandMaker_A_DIR::LandMaker_A_201J_EXTRA_CUSTOM = nullptr;
 uint32_t CGame_LandMaker_A_DIR::rgExtraCountAll_202O[LandMaker_A_202O_NUMUNIT + 1] = { (uint32_t)-1 };
-uint32_t CGame_LandMaker_A_DIR::rgExtraCountAll_201J[LandMaker_A_201J_NUMUNIT + 1] = { (uint32_t)-1 };
+uint32_t CGame_LandMaker_A_DIR::rgExtraCountAll_201J[LandMaker_A_202O_NUMUNIT + 1] = { (uint32_t)-1 };
 uint32_t CGame_LandMaker_A_DIR::rgExtraLoc_202O[LandMaker_A_202O_NUMUNIT + 1] = { (uint32_t)-1 };
-uint32_t CGame_LandMaker_A_DIR::rgExtraLoc_201J[LandMaker_A_201J_NUMUNIT + 1] = { (uint32_t)-1 };
+uint32_t CGame_LandMaker_A_DIR::rgExtraLoc_201J[LandMaker_A_202O_NUMUNIT + 1] = { (uint32_t)-1 };
 
 CDescTree CGame_LandMaker_A_DIR::MainDescTree_202O = nullptr;
-CDescTree CGame_LandMaker_A_DIR::MainDescTree_201J = nullptr;
 UINT32 CGame_LandMaker_A_DIR::m_nExpectedGameROMSize = 0x80000; // each
 UINT32 CGame_LandMaker_A_DIR::m_nConfirmedROMSize = -1;
 
@@ -49,7 +48,6 @@ void CGame_LandMaker_A_DIR::InitializeStatics()
     memset(rgExtraLoc_201J, -1, sizeof(rgExtraLoc_201J));
 
     MainDescTree_202O.SetRootTree(CGame_LandMaker_A_DIR::InitDescTree(202));
-    MainDescTree_201J.SetRootTree(CGame_LandMaker_A_DIR::InitDescTree(201));
 }
 
 CGame_LandMaker_A_DIR::CGame_LandMaker_A_DIR(UINT32 nConfirmedROMSize, int nLandMakerROMToLoad)
@@ -68,40 +66,39 @@ CGame_LandMaker_A_DIR::CGame_LandMaker_A_DIR(UINT32 nConfirmedROMSize, int nLand
     if (nLandMakerROMToLoad == LandMakerJ_A)
     {
         m_nSelectedRom = 201;
+        nGameFlag = LandMakerJ_A;
     } else {
         m_nSelectedRom = 202;
+        nGameFlag = LandMaker_A;
     }
+
+    m_nTotalInternalUnits = LandMaker_A_202O_NUMUNIT;
+    m_nTotalPaletteCount = m_nTotalPaletteCountForLandMaker_202O;
+    m_nLowestKnownPaletteRomLocation = 0x15bfc;
+
+    m_nExtraUnit = LandMaker_A_202O_EXTRALOC;
 
     switch (m_nSelectedRom)
     {
     case 202:
     default:
         m_pszExtraFilename = EXTRA_FILENAME_LANDMAKER_A_202O;
-        m_nTotalInternalUnits = LandMaker_A_202O_NUMUNIT;
-        m_nExtraUnit = LandMaker_A_202O_EXTRALOC;
 
         nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
         m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 129;
-        m_nTotalPaletteCount = m_nTotalPaletteCountForLandMaker_202O;
         m_nLowestKnownPaletteRomLocation = 0x15db2; // 0x15bfc for landmakrj
         break;
     case 201:
         m_pszExtraFilename = EXTRA_FILENAME_LANDMAKER_A_201J;
-        m_nTotalInternalUnits = LandMaker_A_201J_NUMUNIT;
-        m_nExtraUnit = LandMaker_A_201J_EXTRALOC;
 
         nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
 
         m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 129;
-        m_nTotalPaletteCount = m_nTotalPaletteCountForLandMaker_201J;
-        m_nLowestKnownPaletteRomLocation = 0x15bfc;
         break;
     };
 
     InitDataBuffer();
-
-    nGameFlag = LandMaker_A;
 
     // If for some reason there *are* already usable images in imgdat, update these values to point to the right section
     // and create an array (LandMaker_A_IMG_UNITS) that lists the sprites you want to use from that section.
@@ -180,7 +177,7 @@ uint32_t CGame_LandMaker_A_DIR::GetExtraCt(uint32_t nUnitId, BOOL bCountVisibleO
     default:
         return _GetExtraCount(rgExtraCountAll_202O, LandMaker_A_202O_NUMUNIT, nUnitId, LandMaker_A_202O_EXTRA_CUSTOM);
     case 201:
-        return _GetExtraCount(rgExtraCountAll_201J, LandMaker_A_201J_NUMUNIT, nUnitId, LandMaker_A_201J_EXTRA_CUSTOM);
+        return _GetExtraCount(rgExtraCountAll_201J, LandMaker_A_202O_NUMUNIT, nUnitId, LandMaker_A_201J_EXTRA_CUSTOM);
     };
 }
 
@@ -192,33 +189,19 @@ uint32_t CGame_LandMaker_A_DIR::GetExtraLoc(uint32_t nUnitId)
     default:
         return _GetExtraLocation(rgExtraLoc_202O, LandMaker_A_202O_NUMUNIT, nUnitId, LandMaker_A_202O_EXTRA_CUSTOM);
     case 201:
-        return _GetExtraLocation(rgExtraLoc_201J, LandMaker_A_201J_NUMUNIT, nUnitId, LandMaker_A_201J_EXTRA_CUSTOM);
+        return _GetExtraLocation(rgExtraLoc_201J, LandMaker_A_202O_NUMUNIT, nUnitId, LandMaker_A_201J_EXTRA_CUSTOM);
     };
 }
 
 
 const sDescTreeNode* CGame_LandMaker_A_DIR::GetCurrentUnitSet()
 {
-    switch (m_nSelectedRom)
-    {
-    case 202:
-    default:
-        return LandMaker_A_202O_UNITS;
-    case 201:
-        return LandMaker_A_201J_UNITS;
-    };
+    return LandMaker_A_202O_UNITS;
 }
 
 uint32_t CGame_LandMaker_A_DIR::GetCurrentExtraLoc()
 {
-    switch (m_nSelectedRom)
-    {
-    case 202:
-    default:
-        return LandMaker_A_202O_EXTRALOC;
-    case 201:
-        return LandMaker_A_201J_EXTRALOC;
-    };
+    return LandMaker_A_202O_EXTRALOC;
 }
 
 stExtraDef* CGame_LandMaker_A_DIR::GetCurrentExtraDef(int nDefCtr)
@@ -235,14 +218,7 @@ stExtraDef* CGame_LandMaker_A_DIR::GetCurrentExtraDef(int nDefCtr)
 
 CDescTree* CGame_LandMaker_A_DIR::GetMainTree()
 {
-    switch (m_nSelectedRom)
-    {
-    case 202:
-    default:
-        return &CGame_LandMaker_A_DIR::MainDescTree_202O;
-    case 201:
-        return &CGame_LandMaker_A_DIR::MainDescTree_201J;
-    };
+    return &CGame_LandMaker_A_DIR::MainDescTree_202O;
 }
 
 
@@ -253,28 +229,29 @@ sDescTreeNode* CGame_LandMaker_A_DIR::InitDescTree(int nROMPaletteSetToUse)
     bool fHaveExtras;
     uint32_t nUnitCt;
     uint32_t nExtraUnitLocation;
+    uint32_t nCurrentGameFlag;
 
+    nExtraUnitLocation = LandMaker_A_202O_EXTRALOC;
     switch (m_nSelectedRom)
     {
     case 202:
     default:
-        nExtraUnitLocation = LandMaker_A_202O_EXTRALOC;
         LoadExtraFileForGame(EXTRA_FILENAME_LANDMAKER_A_202O, &LandMaker_A_202O_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
-        nUnitCt = LandMaker_A_202O_NUMUNIT + (fHaveExtras ? 1 : 0);
+        nCurrentGameFlag = LandMaker_A;
         break;
     case 201:
-        nExtraUnitLocation = LandMaker_A_201J_EXTRALOC;
         LoadExtraFileForGame(EXTRA_FILENAME_LANDMAKER_A_201J, &LandMaker_A_201J_EXTRA_CUSTOM, nExtraUnitLocation, m_nConfirmedROMSize);
         fHaveExtras = (GetExtraCt(nExtraUnitLocation) > 0);
-        nUnitCt = LandMaker_A_201J_NUMUNIT + (fHaveExtras ? 1 : 0);
+        nCurrentGameFlag = LandMakerJ_A;
         break;
     };
-
+    nUnitCt = LandMaker_A_202O_NUMUNIT + (fHaveExtras ? 1 : 0);
+    
     sDescTreeNode* NewDescTree = new sDescTreeNode;
 
     //Create the main character tree
-    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[LandMaker_A]);
+    _snwprintf_s(NewDescTree->szDesc, ARRAYSIZE(NewDescTree->szDesc), _TRUNCATE, L"%s", g_GameFriendlyName[nCurrentGameFlag]);
     NewDescTree->ChildNodes = new sDescTreeNode[nUnitCt];
     NewDescTree->uChildAmt = nUnitCt;
     //All units have tree children
@@ -295,9 +272,9 @@ sDescTreeNode* CGame_LandMaker_A_DIR::InitDescTree(int nROMPaletteSetToUse)
         break;
     case 201:
         m_nTotalPaletteCountForLandMaker_201J = _InitDescTree(NewDescTree,
-            LandMaker_A_201J_UNITS,
-            LandMaker_A_201J_EXTRALOC,
-            LandMaker_A_201J_NUMUNIT,
+            LandMaker_A_202O_UNITS,
+            LandMaker_A_202O_EXTRALOC,
+            LandMaker_A_202O_NUMUNIT,
             rgExtraCountAll_201J,
             rgExtraLoc_201J,
             LandMaker_A_201J_EXTRA_CUSTOM
@@ -365,7 +342,7 @@ uint32_t CGame_LandMaker_A_DIR::GetCollectionCountForUnit(uint32_t nUnitId)
     default:
         return _GetCollectionCountForUnit(LandMaker_A_202O_UNITS, rgExtraCountAll_202O, LandMaker_A_202O_NUMUNIT, LandMaker_A_202O_EXTRALOC, nUnitId, LandMaker_A_202O_EXTRA_CUSTOM);
     case 201:
-        return _GetCollectionCountForUnit(LandMaker_A_201J_UNITS, rgExtraCountAll_201J, LandMaker_A_201J_NUMUNIT, LandMaker_A_201J_EXTRALOC, nUnitId, LandMaker_A_201J_EXTRA_CUSTOM);
+        return _GetCollectionCountForUnit(LandMaker_A_202O_UNITS, rgExtraCountAll_201J, LandMaker_A_202O_NUMUNIT, LandMaker_A_202O_EXTRALOC, nUnitId, LandMaker_A_201J_EXTRA_CUSTOM);
     };
 }
 
@@ -377,20 +354,13 @@ uint32_t CGame_LandMaker_A_DIR::GetNodeCountForCollection(uint32_t nUnitId, uint
     default:
         return _GetNodeCountForCollection(LandMaker_A_202O_UNITS, rgExtraCountAll_202O, LandMaker_A_202O_NUMUNIT, LandMaker_A_202O_EXTRALOC, nUnitId, nCollectionId, LandMaker_A_202O_EXTRA_CUSTOM);
     case 201:
-        return _GetNodeCountForCollection(LandMaker_A_201J_UNITS, rgExtraCountAll_201J, LandMaker_A_201J_NUMUNIT, LandMaker_A_201J_EXTRALOC, nUnitId, nCollectionId, LandMaker_A_201J_EXTRA_CUSTOM);
+        return _GetNodeCountForCollection(LandMaker_A_202O_UNITS, rgExtraCountAll_201J, LandMaker_A_202O_NUMUNIT, LandMaker_A_202O_EXTRALOC, nUnitId, nCollectionId, LandMaker_A_201J_EXTRA_CUSTOM);
     };
 }
 
 LPCWSTR CGame_LandMaker_A_DIR::GetDescriptionForCollection(uint32_t nUnitId, uint32_t nCollectionId)
 {
-    switch (m_nSelectedRom)
-    {
-    case 202:
-    default:
-        return _GetDescriptionForCollection(LandMaker_A_202O_UNITS, LandMaker_A_202O_EXTRALOC, nUnitId, nCollectionId);
-    case 201:
-        return _GetDescriptionForCollection(LandMaker_A_201J_UNITS, LandMaker_A_201J_EXTRALOC, nUnitId, nCollectionId);
-    };
+    return _GetDescriptionForCollection(LandMaker_A_202O_UNITS, LandMaker_A_202O_EXTRALOC, nUnitId, nCollectionId);
 }
 
 uint32_t CGame_LandMaker_A_DIR::GetPaletteCountForUnit(uint32_t nUnitId)
@@ -401,20 +371,13 @@ uint32_t CGame_LandMaker_A_DIR::GetPaletteCountForUnit(uint32_t nUnitId)
     default:
         return _GetPaletteCountForUnit(LandMaker_A_202O_UNITS, rgExtraCountAll_202O, LandMaker_A_202O_NUMUNIT, LandMaker_A_202O_EXTRALOC, nUnitId, LandMaker_A_202O_EXTRA_CUSTOM);
     case 201:
-        return _GetPaletteCountForUnit(LandMaker_A_201J_UNITS, rgExtraCountAll_201J, LandMaker_A_201J_NUMUNIT, LandMaker_A_201J_EXTRALOC, nUnitId, LandMaker_A_201J_EXTRA_CUSTOM);
+        return _GetPaletteCountForUnit(LandMaker_A_202O_UNITS, rgExtraCountAll_201J, LandMaker_A_202O_NUMUNIT, LandMaker_A_202O_EXTRALOC, nUnitId, LandMaker_A_201J_EXTRA_CUSTOM);
     };
 }
 
 const sGame_PaletteDataset* CGame_LandMaker_A_DIR::GetPaletteSet(uint32_t nUnitId, uint32_t nCollectionId)
 {
-    switch (m_nSelectedRom)
-    {
-    case 202:
-    default:
-        return _GetPaletteSet(LandMaker_A_202O_UNITS, nUnitId, nCollectionId);
-    case 201:
-        return _GetPaletteSet(LandMaker_A_201J_UNITS, nUnitId, nCollectionId);
-    };
+    return _GetPaletteSet(LandMaker_A_202O_UNITS, nUnitId, nCollectionId);
 }
 
 uint32_t CGame_LandMaker_A_DIR::GetNodeSizeFromPaletteId(uint32_t nUnitId, uint32_t nPaletteId)
@@ -450,7 +413,7 @@ const sDescTreeNode* CGame_LandMaker_A_DIR::GetNodeFromPaletteId(uint32_t nUnitI
     default:
         return _GetNodeFromPaletteId(LandMaker_A_202O_UNITS, rgExtraCountAll_202O, LandMaker_A_202O_NUMUNIT, LandMaker_A_202O_EXTRALOC, nUnitId, nPaletteId, LandMaker_A_202O_EXTRA_CUSTOM, fReturnBasicNodesOnly);
     case 201:
-        return _GetNodeFromPaletteId(LandMaker_A_201J_UNITS, rgExtraCountAll_201J, LandMaker_A_201J_NUMUNIT, LandMaker_A_201J_EXTRALOC, nUnitId, nPaletteId, LandMaker_A_201J_EXTRA_CUSTOM, fReturnBasicNodesOnly);
+        return _GetNodeFromPaletteId(LandMaker_A_202O_UNITS, rgExtraCountAll_201J, LandMaker_A_202O_NUMUNIT, LandMaker_A_202O_EXTRALOC, nUnitId, nPaletteId, LandMaker_A_201J_EXTRA_CUSTOM, fReturnBasicNodesOnly);
     };
 }
 
@@ -462,7 +425,7 @@ const sGame_PaletteDataset* CGame_LandMaker_A_DIR::GetSpecificPalette(uint32_t n
     default:
        return _GetSpecificPalette(LandMaker_A_202O_UNITS, rgExtraCountAll_202O, LandMaker_A_202O_NUMUNIT, LandMaker_A_202O_EXTRALOC, nUnitId, nPaletteId, LandMaker_A_202O_EXTRA_CUSTOM);
     case 201:
-       return _GetSpecificPalette(LandMaker_A_201J_UNITS, rgExtraCountAll_201J, LandMaker_A_201J_NUMUNIT, LandMaker_A_201J_EXTRALOC, nUnitId, nPaletteId, LandMaker_A_201J_EXTRA_CUSTOM);
+       return _GetSpecificPalette(LandMaker_A_202O_UNITS, rgExtraCountAll_201J, LandMaker_A_202O_NUMUNIT, LandMaker_A_202O_EXTRALOC, nUnitId, nPaletteId, LandMaker_A_201J_EXTRA_CUSTOM);
     };
 }
 
@@ -572,7 +535,7 @@ BOOL CGame_LandMaker_A_DIR::UpdatePalImg(int Node01, int Node02, int Node03, int
     default:
         return _UpdatePalImg(LandMaker_A_202O_UNITS, rgExtraCountAll_202O, LandMaker_A_202O_NUMUNIT, LandMaker_A_202O_EXTRALOC, LandMaker_A_202O_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
     case 201:
-        return _UpdatePalImg(LandMaker_A_201J_UNITS, rgExtraCountAll_201J, LandMaker_A_201J_NUMUNIT, LandMaker_A_201J_EXTRALOC, LandMaker_A_201J_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
+        return _UpdatePalImg(LandMaker_A_202O_UNITS, rgExtraCountAll_201J, LandMaker_A_202O_NUMUNIT, LandMaker_A_202O_EXTRALOC, LandMaker_A_201J_EXTRA_CUSTOM, Node01, Node02, Node03, Node03);
     };
 }
 

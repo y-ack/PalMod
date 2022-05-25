@@ -16,8 +16,8 @@ private:
 
     static uint32_t rgExtraCountAll_202O[LandMaker_A_202O_NUMUNIT + 1];
     static uint32_t rgExtraLoc_202O[LandMaker_A_202O_NUMUNIT + 1];
-    static uint32_t rgExtraCountAll_201J[LandMaker_A_201J_NUMUNIT + 1];
-    static uint32_t rgExtraLoc_201J[LandMaker_A_201J_NUMUNIT + 1];
+    static uint32_t rgExtraCountAll_201J[LandMaker_A_202O_NUMUNIT + 1];
+    static uint32_t rgExtraLoc_201J[LandMaker_A_202O_NUMUNIT + 1];
 
     static void InitializeStatics();
     static UINT32 m_nExpectedGameROMSize; // from each rom chip
