@@ -20,7 +20,7 @@ const sGame_PaletteDataset LandMaker_A_202O_HIRYU_PALETTES[] =
     { L"Hiryu/Soumei Structures - Gray",   LandMaker_A_STRUCTURE(0x0d2db4) },
     { L"Hiryu/Soumei Structures - Purple", LandMaker_A_STRUCTURE(0x01d130) },
     { L"Chibi Sprites",  LandMaker_A_CHIBI(0x01ceb0) },
-    { L"Hiryu Efx/Attack - Fire", LandMaker_A_CHIBI(0x01bebc+0x3F4) },
+    { L"Hiryu/Gaira Efx/Attack - Fire", LandMaker_A_CHIBI(0x01bebc+0x3F4) },
     { L"Hiryu/Youen Efx 2",       LandMaker_A_CHIBI(0x01bf3c+0x3F4) },
     { L"Select Icon",    LandMaker_A_ICON(0x019cbc+0x3F4) },
     { L"Select Portrait",LandMaker_A_PORTRAIT(0x027a3c+0x3F4) },
