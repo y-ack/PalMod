@@ -85,18 +85,15 @@ CGame_LandMaker_A_DIR::CGame_LandMaker_A_DIR(UINT32 nConfirmedROMSize, int nLand
         m_pszExtraFilename = EXTRA_FILENAME_LANDMAKER_A_202O;
 
         nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 129;
-        m_nLowestKnownPaletteRomLocation = 0x15db2; // 0x15bfc for landmakrj
         break;
     case 201:
         m_pszExtraFilename = EXTRA_FILENAME_LANDMAKER_A_201J;
 
         nUnitAmt = m_nTotalInternalUnits + (GetExtraCt(m_nExtraUnit) ? 1 : 0);
-
-        m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 129;
         break;
     };
+
+    m_nSafeCountForThisRom = GetExtraCt(m_nExtraUnit) + 246;
 
     InitDataBuffer();
 
