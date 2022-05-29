@@ -24,9 +24,9 @@ const sGame_PaletteDataset LandMaker_A_202O_HIRYU_PALETTES[] =
     { L"Hiryu/Youen Efx 2",       LandMaker_A_CHIBI(0x01bf3c+0x3F4) },
     { L"Select Icon",    LandMaker_A_ICON(0x019cbc+0x3F4) },
     { L"Select Portrait",LandMaker_A_PORTRAIT(0x027a3c+0x3F4) },
-    { L"Attack Art",     LandMaker_A_PORTRAIT(0x029030) },
-    { L"Attack Art",     LandMaker_A_PORTRAIT(0x029130) },
-    { L"Attack Art",     LandMaker_A_PORTRAIT(0x023a30) },
+    { L"Attack Art 1",     LandMaker_A_PORTRAIT(0x029030) },
+    { L"Attack Art 2",     LandMaker_A_PORTRAIT(0x029130) },
+    { L"Attack Art 3",     LandMaker_A_PORTRAIT(0x023a30) },
     { L"Win Portrait",   LandMaker_A_PORTRAIT(0x027b3c+0x3F4) },
     { L"Map Buildings", LandMaker_A_STRUCTURE(0x018c3c+0x3F4) },
 };
