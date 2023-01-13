@@ -597,7 +597,10 @@ BOOL CPalModDlg::IsPasteFromPalMod()
 
     if (szTempStr[0] == '(')
     {
-        if ((szTempStr[1] - k_nASCIICharacterOffset) < NUM_GAMES) //Gameflag
+        // legacy ((szTempStr[1] - k_nASCIICharacterOffset) < NUM_GAMES)
+        // check for when color format == game id, and then by the time they switched,
+        // there were over 127 - '!' games...
+        if ((szTempStr[1] - k_nASCIICharacterOffset) < 128) //Gameflag
         {
             uint16_t nPaletteCount = 0;
             uint8_t cbColorSize = ColorSystem::GetCbForColorForGameFlag(szTempStr[1] - k_nASCIICharacterOffset, szTempStr[2]);
