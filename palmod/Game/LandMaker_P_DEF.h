@@ -51,13 +51,14 @@ const sGCBUPF_ExtrasCollection LANDMAKER_P_Palettes_GAME_Common =
         { L"Tiles - Purple", LANDMAKER_P_TILE(0x1996C+0xA0),  indexLandMaker_Common, 0x00 },
         { L"Tiles - Gray",   LANDMAKER_P_TILE(0x1996C+0xC0),  indexLandMaker_Common, 0x00 },
         
-        { L"Efx Spread - Red",     LANDMAKER_P_SPREAD(0x1996C+0x63C),      indexLandMaker_Common, 0x01 },
-        { L"Efx Spread - Blue",    LANDMAKER_P_SPREAD(0x1996C+0x63C+0x20), indexLandMaker_Common, 0x01 },
-        { L"Efx Spread - Orange",  LANDMAKER_P_SPREAD(0x1996C+0x63C+0x40), indexLandMaker_Common, 0x01 },
-        { L"Efx Spread - Yellow",  LANDMAKER_P_SPREAD(0x1996C+0x63C+0x60), indexLandMaker_Common, 0x01 },
-        { L"Efx Spread - Green",   LANDMAKER_P_SPREAD(0x1996C+0x63C+0x80), indexLandMaker_Common, 0x01 },
-        { L"Efx Spread - Purple",  LANDMAKER_P_SPREAD(0x1996C+0x63C+0xA0), indexLandMaker_Common, 0x01 },
-        { L"Efx Spread - Gray",    LANDMAKER_P_SPREAD(0x1996C+0x63C+0xC0), indexLandMaker_Common, 0x01 },
+        // psx uses different reindexed irotes graphic 
+        { L"Efx Spread - Red",     LANDMAKER_P_SPREAD(0x1996C+0x63C),      INVALID_UNIT_VALUE, 0x00 },
+        { L"Efx Spread - Blue",    LANDMAKER_P_SPREAD(0x1996C+0x63C+0x20), INVALID_UNIT_VALUE, 0x00 },
+        { L"Efx Spread - Orange",  LANDMAKER_P_SPREAD(0x1996C+0x63C+0x40), INVALID_UNIT_VALUE, 0x00 },
+        { L"Efx Spread - Yellow",  LANDMAKER_P_SPREAD(0x1996C+0x63C+0x60), INVALID_UNIT_VALUE, 0x00 },
+        { L"Efx Spread - Green",   LANDMAKER_P_SPREAD(0x1996C+0x63C+0x80), INVALID_UNIT_VALUE, 0x00 },
+        { L"Efx Spread - Purple",  LANDMAKER_P_SPREAD(0x1996C+0x63C+0xA0), INVALID_UNIT_VALUE, 0x00 },
+        { L"Efx Spread - Gray",    LANDMAKER_P_SPREAD(0x1996C+0x63C+0xC0), INVALID_UNIT_VALUE, 0x00 },
 
         { L"Efx Corner Shine - Red",     LANDMAKER_P_SHINE(0x1996C+0xA64),       indexLandMaker_Common, 0x02 },
         { L"Efx Corner Shine - Blue",    LANDMAKER_P_SHINE(0x1996C+0xA64+0x40),  indexLandMaker_Common, 0x02 },
