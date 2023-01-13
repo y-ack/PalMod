@@ -15,7 +15,7 @@ constexpr auto c_strLastUsedGFlag = L"LastUsedGFlag";
 std::vector<sSupportedGameToFileMap> g_rgGameToFileMap =
 {
     // 1: Game ID,      2: Popup menu text,   3: Open File filter text,    4: Game Platform [,  5: Optional sub-category]
-    { LandMaker_A,      L"Land Maker (Arcade)", L"Land Maker (Arcade)|e61-*.20;mpro-3.60|", GamePlatform::OtherPlatform },
+    { LandMaker_A,      L"Land Maker (Arcade)", L"Land Maker (Arcade)|e61-*.20;mpro-3.60|", GamePlatform::Taito },
     { MAGICALDROPII_A,  L"Magical Drop II", L"Magical Drop II|221-p1*.*|", GamePlatform::NEOGEO },
     { MAGICALDROPIII_A, L"Magical Drop III", L"Magical Drop III|233-p1*.*|", GamePlatform::NEOGEO },
     { NeoBomberman_A,   L"Neo Bomberman", L"Neo Bomberman|093-p1.*|", GamePlatform::NEOGEO },

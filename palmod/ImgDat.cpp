@@ -4,7 +4,7 @@
 #include "lodepng/lodepng.h"
 #include "PalMod.h"
 
-#define IMGDAT_DEBUG 1
+#define IMGDAT_DEBUG 0
 
 void OutputDebugString_ImgDat(LPCWSTR pszString) {
 #if IMGDAT_DEBUG

@@ -155,17 +155,19 @@ const wchar_t g_GameFriendlyName[][64] =
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");
 
+// not really platform/series, just submenu/subsubmenu grouping
 enum class GamePlatform
 {
     CapcomCPS12 = 0,
-    CapcomCPS3,
+//    CapcomCPS3,
     NEOGEO,
     Nintendo,
-    PGM,
+//    PGM,
     PS2,
-    SammyAtomiswave,
+//    SammyAtomiswave,
     SegaNAOMI,
     Steam,
+    Taito,
     OtherPlatform,
     DevMode,
     Last,
@@ -173,16 +175,7 @@ enum class GamePlatform
 
 enum class GameSeries
 {
-    ArtOfFighting = 0,
-    FatalFury,
-    KOF,
-    MvC,
-    SamuraiShodown,
-    SFA,
-    SF2,
-    SF3,
-    VampireSavior,
-    NintendoDS,
+    NintendoDS = 0,
     NintendoGBA,
     NintendoSNES,
     Unknown,

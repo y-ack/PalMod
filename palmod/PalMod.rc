@@ -446,8 +446,9 @@ BEGIN
         POPUP "&Load Directory"
         BEGIN
             MENUITEM "Dan-Ku-Ga",                   ID_LOADDIRECTORY_DANKUGA
-            POPUP "Land Maker (PlayStation)"
+            POPUP "Land Maker"
             BEGIN
+                MENUITEM "Land Maker (Taito F3 System)",    12 | 0xF0000
                 MENUITEM "Land Maker (PlayStation)",        ID_LD_LANDMAKER_P
             END
             MENUITEM "Developer Mode",              ID_LD_DEVMODE

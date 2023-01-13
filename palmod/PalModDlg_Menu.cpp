@@ -115,9 +115,9 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             seriesMenu[0].CreatePopupMenu();
             seriesMenu[1].CreatePopupMenu();
             seriesMenu[2].CreatePopupMenu();
-            seriesMenu[3].CreatePopupMenu();
+            //seriesMenu[3].CreatePopupMenu();
 
-            if (((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) || ((GamePlatform)nPlatform == GamePlatform::NEOGEO) || ((GamePlatform)nPlatform == GamePlatform::Nintendo))
+            if (((GamePlatform)nPlatform == GamePlatform::Nintendo))
             {
                 // first pass is just the submenus
                 for (const auto& sGametoFileData : g_rgGameToFileMap)
@@ -133,24 +133,14 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                         {
                             switch (sGametoFileData.seriesKey)
                             {
-                            case GameSeries::MvC:
-                            case GameSeries::ArtOfFighting:
                             case GameSeries::NintendoDS:
                                 seriesMenu[0].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                 break;
-                            case GameSeries::SFA:
-                            case GameSeries::FatalFury:
                             case GameSeries::NintendoGBA:
                                 seriesMenu[1].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                 break;
-                            case GameSeries::SF2:
-                            case GameSeries::KOF:
                             case GameSeries::NintendoSNES:
                                 seriesMenu[2].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
-                                break;
-                            case GameSeries::VampireSavior:
-                            case GameSeries::SamuraiShodown:
-                                seriesMenu[3].InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                                 break;
                             }
                         }
@@ -159,8 +149,6 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
             }
 
             uint8_t nMenuIndex = 0;
-            LPCWSTR ppszCapcomSubMenu[] = { L"Marvel vs Capcom", L"Street Fighter Alpha", L"Street Fighter 2", L"Vampire Savior" };
-            LPCWSTR ppszSNKSubMenu[] = { L"Art of Fighting", L"Fatal Fury", L"King of Fighters", L"Samurai Shodown" };
             LPCWSTR ppszNintendoSubMenu[] = { L"DS/3DS", L"GBA", L"SNES" };
 
             for (const auto& sGametoFileData : g_rgGameToFileMap)
@@ -172,28 +160,7 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                     mii.wID = sGametoFileData.nInternalGameIndex | k_nGameLoadROMListMask;
                     mii.dwTypeData = (LPWSTR)sGametoFileData.szGameFriendlyName;
 
-                    if (((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(seriesMenu))))
-                    {
-                        // This logic is used to insert our submenu mostly alphabetically
-                        if ((ppszCapcomSubMenu[nMenuIndex][0] <= sGametoFileData.szGameFriendlyName[0]) &&
-                            (ppszCapcomSubMenu[nMenuIndex][1] <= sGametoFileData.szGameFriendlyName[1]))
-                        {
-                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszCapcomSubMenu[nMenuIndex]);
-                            nMenuIndex++;
-                            nCurrentPosition++;
-                        }
-                    }
-                    else if (((GamePlatform)nPlatform == GamePlatform::NEOGEO) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(seriesMenu))))
-                    {
-                        if ((ppszSNKSubMenu[nMenuIndex][0] <= sGametoFileData.szGameFriendlyName[0]) &&
-                            (ppszSNKSubMenu[nMenuIndex][1] <= sGametoFileData.szGameFriendlyName[1]))
-                        {
-                            platformMenu.AppendMenu(MF_BYPOSITION | MF_STRING | MF_POPUP, (UINT_PTR)seriesMenu[nMenuIndex].Detach(), ppszSNKSubMenu[nMenuIndex]);
-                            nMenuIndex++;
-                            nCurrentPosition++;
-                        }
-                    }
-                    else if (((GamePlatform)nPlatform == GamePlatform::Nintendo) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(ppszNintendoSubMenu))))
+                    if (((GamePlatform)nPlatform == GamePlatform::Nintendo) && (nMenuIndex < min(ARRAYSIZE(seriesMenu), ARRAYSIZE(ppszNintendoSubMenu))))
                     {
                         if ((ppszNintendoSubMenu[nMenuIndex][0] <= sGametoFileData.szGameFriendlyName[0]) &&
                             (ppszNintendoSubMenu[nMenuIndex][1] <= sGametoFileData.szGameFriendlyName[1]))
@@ -204,10 +171,8 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                         }
                     }
 
-                    if ((((GamePlatform)nPlatform == GamePlatform::CapcomCPS12) && (sGametoFileData.seriesKey == (GameSeries)GameSeries::Unknown)) ||
-                        (((GamePlatform)nPlatform == GamePlatform::NEOGEO) && (sGametoFileData.seriesKey == (GameSeries)GameSeries::Unknown)) ||
-                        (((GamePlatform)nPlatform == GamePlatform::Nintendo) && (sGametoFileData.seriesKey == (GameSeries)GameSeries::Unknown)) ||
-                        (((GamePlatform)nPlatform != GamePlatform::CapcomCPS12) && ((GamePlatform)nPlatform != GamePlatform::NEOGEO) && ((GamePlatform)nPlatform != GamePlatform::Nintendo)))
+                    if ((((GamePlatform)nPlatform == GamePlatform::Nintendo) && (sGametoFileData.seriesKey == (GameSeries)GameSeries::Unknown)) ||
+                        (((GamePlatform)nPlatform != GamePlatform::Nintendo)))
                     {
                         platformMenu.InsertMenuItem(nCurrentPosition++, &mii, TRUE);
                     }
@@ -221,12 +186,12 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                 case GamePlatform::CapcomCPS12:
                     pszPlatformName = L"Capcom CPS1/2";
                     break;
-                case GamePlatform::CapcomCPS3:
-                    pszPlatformName = L"Capcom CPS3";
-                    break;
-                case GamePlatform::SammyAtomiswave:
-                    pszPlatformName = L"Sammy Atomiswave";
-                    break;
+                // case GamePlatform::CapcomCPS3:
+                //     pszPlatformName = L"Capcom CPS3";
+                //     break;
+                // case GamePlatform::SammyAtomiswave:
+                //     pszPlatformName = L"Sammy Atomiswave";
+                //     break;
                 case GamePlatform::OtherPlatform:
                     pszPlatformName = L"Other";
                     break;
@@ -239,14 +204,17 @@ void CPalModDlg::OnInitMenuPopup(CMenu* pPopupMenu, UINT nIndex, BOOL fSysMenu)
                 case GamePlatform::Nintendo:
                     pszPlatformName = L"Nintendo";
                     break;
-                case GamePlatform::PGM:
-                    pszPlatformName = L"PolyGame Master";
-                    break;
+                // case GamePlatform::PGM:
+                //     pszPlatformName = L"PolyGame Master";
+                //     break;
                 case GamePlatform::PS2:
                     pszPlatformName = L"Playstation 2";
                     break;
                 case GamePlatform::Steam:
                     pszPlatformName = L"Steam";
+                    break;
+                case GamePlatform::Taito:
+                    pszPlatformName = L"Taito";
                     break;
                 case GamePlatform::DevMode:
                     pszPlatformName = L"Developer Mode";
