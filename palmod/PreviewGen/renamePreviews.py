@@ -68,6 +68,9 @@ for f in os.listdir(in_dir):
 		print("failed to match imgid for file ", f,"(parsed img key '",img_k,"')")
 
 	# GAME-unit-0xUU-imgid-0xII-W-#-H-#-compF-#
+	# compF is probably compression format, but we're incompatible with it
+	# we do not handle rle nonsense because we just load pngs
+	# y is 9, so let's set that (bad) ww
 	newName = game+'-unit-'+unit_id+'-imgid-'+img_id+'-W-'+width+'-H-'+height+'-compF-9'
 	print(newName)
 
