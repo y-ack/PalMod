@@ -32,32 +32,33 @@ enum eIMGDat_Sections
     IMGDAT_SECTION_LAST,    // for comparing to the imgdat we try to load
 };
 
+// should match nameToId.py section map names (*_unitIDs)
 const wchar_t g_IMGDatSectionName[][64] =
 {
-    L"ArcanaHeart",
+    L"Arcana",
     L"ArcSys",
     L"BreakRev",
-    L"CPS2",
+    L"CPS2", // note: bad name convention in tv nameToID.py
     L"DS",
     L"FrenchBread",
     L"Garou",
     L"GuiltyGear",
-    L"Jojos",
-    L"KarnovsR",
+    L"JoJo",
+    L"KarnovR",
     L"KOF",
-    L"Matrimelee",
-    L"NeoGeo",
+    L"MatriMelee",
+    L"NEOGEO",
     L"Other",
     L"PGM",
     L"RedEarth",
-    L"SamSho",
-    L"Sega",
-    L"SF2",
-    L"SF3",
+    L"SAMSHO", // note: bad name convention in tv nameToID.py
+    L"SEGA",
+    L"SF2", // note: bad name convention in tv nameToID.py
+    L"ThirdStrike", // note: bad name convention in tv nameToID.py
     L"SNES",
     L"Taito",
     L"WakuWaku7",
-    L"WindJammers",
+    L"WindJamm",
 };
 
 static_assert(ARRAYSIZE(g_IMGDatSectionName) == IMGDAT_SECTION_LAST, "The IMGDat_Sections enum and the folders in g_IMGDatSectionName must match length.");

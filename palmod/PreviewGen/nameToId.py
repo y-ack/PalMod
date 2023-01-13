@@ -1,3 +1,4 @@
+# should match Game/ImgIdDef.h section names
 Game_Sections = {
 	'PuzzleFighter': 'CPS2',
 	'DanKuGa': 'Taito',
@@ -6,6 +7,17 @@ Game_Sections = {
 	'MagDrop3': 'NEOGEO',
 	'MagDrop2': 'NEOGEO',
 }
+# MUST have:
+# [SECTION]_unitIDs
+# MAY have:
+# [SECTION]_imgIDs
+# [GAME]_imgIDs
+# [SECTION]_CharSpec_imgIDs
+# [GAME]_CharSpec_imgIDs
+
+# some old nameToId.py maps are inconsistently named!!!
+# (e.g. _IMG_IDS, _UNIT_ID)
+# and are not tolerated by this script! be careful!
 
 CPS2_unitIDs = {
     'PuzzleFighter_Akuma': '0x96',
@@ -24,7 +36,7 @@ CPS2_unitIDs = {
     'PuzzleFighter_Bonus': '0xA3',
     'PuzzleFighter_Stages': '0xA4',
 }
-CPS2_IMG_IDs = {
+CPS2_imgIDs = {
     'Base': '0x00',
     'MonoSprite0': '0x80',
     'MonoSprite1': '0x81',
