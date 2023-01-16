@@ -126,7 +126,7 @@ void CPalModDlg::DoDataExchange(CDataExchange* pDX)
 #pragma warning( push )
 #pragma warning( disable : 26454 ) // bug in Microsoft headers
 
-static_assert((ColMode)28 == ColMode::COLMODE_LAST, "New color formats need menu command handlers added to the message map.");
+static_assert((ColMode)29 == ColMode::COLMODE_LAST, "New color formats need menu command handlers added to the message map.");
 
 // CPalModDlg message handlers
 BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
@@ -207,7 +207,8 @@ BEGIN_MESSAGE_MAP(CPalModDlg, CDialog)
     ON_COMMAND(ID_COLORFORMAT_RGB555_LE, &CPalModDlg::SetColorFormatToRGB555_LE)
     ON_COMMAND(ID_COLORFORMAT_RGB555_BE, &CPalModDlg::SetColorFormatToRGB555_BE)
     ON_COMMAND(ID_COLORFORMAT_xBGR555_LE, &CPalModDlg::SetColorFormatToxBGR555_LE)
-    
+    ON_COMMAND(ID_COLORFORMAT_BGR555STB_LE, &CPalModDlg::SetColorFormatToBGR555STB_LE)
+
 
     ON_COMMAND(ID_COLORFORMAT_RGB666, &CPalModDlg::SetColorFormatToNEOGEO)
     ON_COMMAND(ID_COLORFORMAT_SHARPRGB, &CPalModDlg::SetColorFormatToSharpRGB)

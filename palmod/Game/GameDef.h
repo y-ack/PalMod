@@ -49,6 +49,8 @@ enum SupportedGamesList
     DUMMY_RGBA8881 = 85,
     DUMMY_RGBA8888_LE = 86,
 
+    DUMMY_BGR555STB_LE,
+
     NUM_GAMES // This needs to be last
 };
 
@@ -151,6 +153,7 @@ const wchar_t g_GameFriendlyName[][64] =
     L"",
     L"DUMMY_RGBA8881",
     L"DUMMY_RGB8888LE",
+    L"DUMMY_BGR555STB_LE"
 };
 
 static_assert(ARRAYSIZE(g_GameFriendlyName) == NUM_GAMES, "The gameId enum and the descriptors in g_GameFriendlyName must match length.");

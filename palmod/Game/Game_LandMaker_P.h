@@ -13,8 +13,8 @@ private:
         LandMaker_P_IMGIDS_USED,
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
-        AlphaMode::GameDoesNotUseAlpha,
-        ColMode::COLMODE_BGR555_LE,
+        AlphaMode::GameUsesVariableAlpha,
+        ColMode::COLMODE_BGR555STB_LE,
         LandMaker_P_CharacterData,
         PaletteArrangementStyle::OneButtonLabelEntryPerEachNode,
         0x40,
@@ -22,7 +22,9 @@ private:
 
     
 public:
-    CGame_LandMaker_P(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData); };
+    CGame_LandMaker_P(uint32_t nConfirmedROMSize) { InitializeGame(nConfirmedROMSize, m_sCoreGameData);
+      AllowTransparencyEdits(TRUE);
+    };
     ~CGame_LandMaker_P() { ClearDataBuffer(); FlushChangeTrackingArray(); };
 
     static sFileRule GetRule(uint32_t nRuleId) { return CGameClassPerUnitPerFile::GetRule(nRuleId, LandMaker_P_CharacterData);

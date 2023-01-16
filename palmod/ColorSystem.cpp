@@ -65,6 +65,7 @@ namespace ColorSystem
         case ColMode::COLMODE_GRB555_LE:
         case ColMode::COLMODE_BRG555_LE:
         case ColMode::COLMODE_RGB666_NEOGEO:
+        case ColMode::COLMODE_BGR555STB_LE:
             return 2;
 
         case ColMode::COLMODE_BGR888:
@@ -117,6 +118,7 @@ namespace ColorSystem
         { "BRG888", ColMode::COLMODE_BRG888 },
         { "xBGR555LE", ColMode::COLMODE_xBGR555_LE },            // Different packing used by Asura Buster / Fuuki
         { "BRG555LE", ColMode::COLMODE_BRG555_LE },              // BRG555 little endian, used by Fists of Fury
+        { "BGR555STB_LE", ColMode::COLMODE_BGR555STB_LE },
     };
 
     bool GetColorFormatForColorFormatString(LPCSTR paszColorString, ColMode& cmColorMode)
@@ -253,6 +255,7 @@ namespace ColorSystem
         case ColMode::COLMODE_GRB555_LE:
         case ColMode::COLMODE_BRG555_LE:
         case ColMode::COLMODE_RGB555_SHARP:
+        case ColMode::COLMODE_BGR555STB_LE:
             return k_nRGBPlaneAmtForRGB555;
 
         case ColMode::COLMODE_RGB666_NEOGEO:
@@ -413,6 +416,61 @@ namespace ColorSystem
         else
         {
             auxa = (auxa == 0xFF) ? 0x1 : 0;
+        }
+
+        return (((auxr >> 3) & 31) | (((auxg >> 3) & 31) << 5) | (((auxb >> 3) & 31) << 10)) | (auxa << 15);
+    }
+
+    uint32_t CONV_BGR555STBLE_32(uint16_t inCol)
+    {
+        if (inCol == 0x0000) {
+            return 0x00000000;
+        } else if (inCol == 0x8000) {
+            return 0xFF000000;
+        }
+
+        uint32_t red = (inCol & 31) << 3;
+        uint32_t green = ((inCol >> 5) & 31) << 3;
+        uint32_t blue = ((inCol >> 10) & 31) << 3;
+        uint32_t alpha = ((inCol >> 15) & 1) << 3;
+
+        // account for rounding
+        red += red / 32;
+        green += green / 32;
+        blue += blue / 32;
+
+        if (alpha == 0x8)
+        {
+            alpha = 0x7F;
+        } 
+        else
+        {
+            alpha = 0xFF;
+        }
+
+        return ((alpha << 24) | (blue << 16) | (green << 8) | (red));
+    }
+
+    uint16_t CONV_32_BGR555STBLE(uint32_t inCol)
+    {
+        if (inCol == 0x00000000) {
+            return 0x0000;
+        } else if (inCol == 0xFF000000) {
+            return 0x8000;
+        }
+        
+        uint16_t auxa = ((inCol & 0xFF000000) >> 24);
+        uint16_t auxb = ((inCol & 0x00FF0000) >> 16);
+        uint16_t auxg = ((inCol & 0x0000FF00) >> 8);
+        uint16_t auxr = ((inCol & 0x000000FF));
+
+        if (CurrAlphaMode == AlphaMode::GameDoesNotUseAlpha)
+        {
+            auxa = 0;
+        }
+        else
+        {
+            auxa = (auxa == 0x7F) ? 0x1 : 0;
         }
 
         return (((auxr >> 3) & 31) | (((auxg >> 3) & 31) << 5) | (((auxb >> 3) & 31) << 10)) | (auxa << 15);
