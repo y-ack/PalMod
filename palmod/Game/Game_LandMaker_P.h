@@ -14,7 +14,7 @@ private:
         { NO_SPECIAL_OPTIONS, PALWriteOutputOptions::WRITE_MAX },
         eImageOutputSpriteDisplay::DISPLAY_SPRITES_LEFTTORIGHT,
         AlphaMode::GameUsesVariableAlpha,
-        ColMode::COLMODE_BGR555STB_LE,
+        ColMode::COLMODE_BGR555_LE,
         LandMaker_P_CharacterData,
         PaletteArrangementStyle::OneButtonLabelEntryPerEachNode,
         0x40,

@@ -89,8 +89,6 @@ void CPalModDlg::PostGameLoad()
     //Update the combo selection
     UpdateCombo();
 
-    GetDlgItem(IDC_BCHECKMIX)->ShowWindow(false ? SW_SHOW : SW_HIDE);
-
     CPreviewDlg* PreviewDlg = GetHost()->GetPreviewDlg();
 
     if (!PreviewDlg->IsWindowVisible())
