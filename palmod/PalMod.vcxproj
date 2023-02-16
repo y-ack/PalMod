@@ -109,6 +109,7 @@
       <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -240,11 +241,7 @@
     <ClCompile Include="Game\GameLoad.cpp" />
     <ClCompile Include="Game\Game_DevMode_DIR.cpp" />
     <ClCompile Include="Game\Game_LandMaker_A.cpp" />
-    <ClCompile Include="Game\Game_MagicalDropIII_A.cpp" />
-    <ClCompile Include="Game\Game_MagicalDropII_A.cpp" />
     <ClCompile Include="Game\Game_NEOGEO_A.cpp" />
-    <ClCompile Include="Game\Game_GEMFIGHTER_A.cpp" />
-    <ClCompile Include="Game\Game_SPF2T_A.cpp" />
     <ClCompile Include="Game\PalGroup.cpp" />
     <ClCompile Include="Game\Patching.cpp" />
     <ClCompile Include="Game\SuppProc.cpp" />
