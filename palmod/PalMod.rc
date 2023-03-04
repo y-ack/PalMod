@@ -515,8 +515,7 @@ BEGIN
                 MENUITEM "RGB444 (big endian for CPS1/CPS2)", ID_COLORFORMAT_RGB444_BE
                 MENUITEM "RGB444 (little endian for SF2/SFA 30th)", ID_COLORFORMAT_RGB444_LE
                 MENUITEM SEPARATOR
-                MENUITEM "BGR555 (little endian for GBA, SNES)", ID_COLORFORMAT_BGR555_LE
-                MENUITEM "BGR555 (little endian for most PSX)", ID_COLORFORMAT_BGR555STB_LE
+                MENUITEM "BGR555 (little endian for GBA, most PSX, SNES)", ID_COLORFORMAT_BGR555_LE
                 MENUITEM "BGR555 (little endian for Fuuki)", ID_COLORFORMAT_xBGR555_LE
                 MENUITEM "BGR555 (big endian for Motorola 68000)", ID_COLORFORMAT_BGR555_BE
                 MENUITEM "BRG555 (little endian)",      ID_COLORFORMAT_BRG555_LE
@@ -585,6 +584,12 @@ BEGIN
         MENUITEM "Set Background Color",        ID_SETTINGS_SETBACKGROUNDCOLOR
         MENUITEM "Set Background Image",        ID_SETTINGS_SETBACKGROUNDIMAGE
         MENUITEM "Set Blink Color",             ID_SETTINGS_SETBLINKCOLOR
+        MENUITEM SEPARATOR
+        POPUP "Blend Mode"
+        BEGIN
+            MENUITEM "Alpha (Normal)"           ID_SETTINGS_BLENDALPHA
+            MENUITEM "Additive"                 ID_SETTINGS_BLENDADD
+        END
         MENUITEM SEPARATOR
         MENUITEM "Blink Inverts Color",         ID_SETTINGS_BLINKINVERTS
         MENUITEM "Use Background Color",        ID_SETTINGS_USEBGCOLOR

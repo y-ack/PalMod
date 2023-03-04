@@ -105,7 +105,7 @@ private:
     void SetColorsPerLineTo16();
     void SetColorFormatTo(ColMode newColMode);
 
-    static_assert((ColMode)29 == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
+    static_assert((ColMode)28 == ColMode::COLMODE_LAST, "New color formats need functions backing their menu command added here.");
 
     void SetColorFormatToBGR333() { SetColorFormatTo(ColMode::COLMODE_BGR333); };
     void SetColorFormatToRBG333() { SetColorFormatTo(ColMode::COLMODE_RBG333); };
@@ -124,7 +124,6 @@ private:
     void SetColorFormatToRGB555_BE() { SetColorFormatTo(ColMode::COLMODE_RGB555_BE); };
     void SetColorFormatToRGB555_LE() { SetColorFormatTo(ColMode::COLMODE_RGB555_LE); };
     void SetColorFormatToxBGR555_LE() { SetColorFormatTo(ColMode::COLMODE_xBGR555_LE); };
-    void SetColorFormatToBGR555STB_LE() { SetColorFormatTo(ColMode::COLMODE_BGR555STB_LE); };
 
     void SetColorFormatToNEOGEO() { SetColorFormatTo(ColMode::COLMODE_RGB666_NEOGEO); };
     void SetColorFormatToSharpRGB() { SetColorFormatTo(ColMode::COLMODE_RGB555_SHARP); };
