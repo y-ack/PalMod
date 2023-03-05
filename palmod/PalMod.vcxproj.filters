@@ -600,9 +600,6 @@
     <ClCompile Include="Game\Game_SFA3_A.cpp">
       <Filter>Games\Capcom Games\SFA3_A</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game_XMVSF_A.cpp">
-      <Filter>Games\Capcom Games\XMVSF_A</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Game_MVC_A.cpp">
       <Filter>Games\Capcom Games\MVC_A</Filter>
     </ClCompile>
@@ -662,9 +659,6 @@
     </ClCompile>
     <ClCompile Include="Game\Game_MSHVSF_A.cpp">
       <Filter>Games\Capcom Games\MSHVSF_A</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_COTA_A.cpp">
-      <Filter>Games\Capcom Games\COTA_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_MVC2_A.cpp">
       <Filter>Games\Capcom Games\MVC2_A</Filter>
@@ -740,9 +734,6 @@
     </ClCompile>
     <ClCompile Include="Game\Game_SSF2T_GBA.cpp">
       <Filter>Games\Capcom Games\SSF2T_GBA</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Game_SFIII1_A.cpp">
-      <Filter>Games\Capcom Games\SFIII1_A</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game_KOFXI_A.cpp">
       <Filter>Games\SNK Games\KOFXI_A</Filter>
