@@ -1296,7 +1296,7 @@ void CPalModDlg::OnEditSelectNone()
 
 DWORD CPalModDlg::GetColorAtCurrentMouseCursorPosition(int ptX /* = -1 */, int ptY /* = -1 */)
 {
-    HDC hdc = ::GetDC(0);
+    HDC hdc = ::GetWindowDC(0);
     DWORD colorAsDWORD = CLR_INVALID;
 
     if (hdc != nullptr)
