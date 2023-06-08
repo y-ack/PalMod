@@ -38,14 +38,14 @@ enum SupportedGamesList
     LandMaker_P,
     DUMMY_RGB666_NEOGEO = 14,
     DEVMODE_DIR,
-    
+
     DUMMY_RGB555_BE = 32,
     DUMMY_BGR555_LE = 41,
     DUMMY_RGB333 = 60,
     DUMMY_RGBA8887 = 62,
     DUMMY_RGB555_SHARP = 64,
     DUMMY_RGB444_LE = 75,
-    
+
     DUMMY_RGBA8881 = 85,
     DUMMY_RGBA8888_LE = 86,
 
