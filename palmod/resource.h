@@ -368,13 +368,16 @@
 #define ID_SETTINGS_BLENDDEFAULT        32947
 #define ID_SETTINGS_BLENDALPHA          32948
 #define ID_SETTINGS_BLENDADD            32949
+#define ID_ALPHASETTING_STP             32950
+#define ID_SETTINGS_BLENDPS1STON        32951
+#define ID_SETTINGS_BLENDPS1STOFF       32952
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        149
-#define _APS_NEXT_COMMAND_VALUE         32950
+#define _APS_NEXT_COMMAND_VALUE         32953
 #define _APS_NEXT_CONTROL_VALUE         1097
 #define _APS_NEXT_SYMED_VALUE           104
 #endif

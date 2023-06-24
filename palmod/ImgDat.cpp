@@ -91,8 +91,9 @@ sImgDef* CImgDat::GetImageDef(uint32_t uUnitId, uint16_t uImgId) {
         OutputDebugString(strDebugInfo);
 #endif
 
-        imgMapIter it = nImgMap->find((uint16_t)uUnitId);
-        if (it != nImgMap->cend()) {
+        imgMapIter it = nImgMap->find(static_cast<uint16_t>(uUnitId));
+        if (it != nImgMap->cend())
+        {
             // it->second->listAllImgIDs();
 #if IMGDAT_DEBUG
             strDebugInfo.Format(L"\tCImgDat::GetImageDef : ppImgData[0x%02X] exists containings 0x%x items\n", uUnitId, it->second->size());
@@ -136,7 +137,7 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCur
         if (!file.Open(pCurrImg->pImgPath, CFile::modeRead | CFile::typeBinary)) {
             return nullptr;
         }
-        UINT dataSize = (UINT)file.GetLength();
+        UINT dataSize = static_cast<UINT>(file.GetLength());
         uint8_t* pNewImgData = new uint8_t[dataSize];
         file.Read(pNewImgData, dataSize);
 
@@ -150,7 +151,7 @@ uint8_t* CImgDat::GetImgData(sImgDef* pCurrImg, uint8_t uGameFlag, uint16_t nCur
         if (!file.Open(pCurrImg->pImgPath, CFile::modeRead | CFile::typeBinary)) {
             return nullptr;
         }
-        UINT dataSize = (UINT)file.GetLength();
+        UINT dataSize = static_cast<UINT>(file.GetLength());
         uint8_t* pngData = new uint8_t[dataSize];
         file.Read(pngData, dataSize);
 
