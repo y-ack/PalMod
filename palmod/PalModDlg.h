@@ -174,6 +174,7 @@ private:
     void UpdatePalSel(BOOL fSetSingleCol = FALSE);
 
     void Blink();
+    void PerformBlink();
 
     void GetSetSingleCol();
     void SetSliderCol(int nRH, int nGS, int nBL, int nA = -1);
@@ -185,7 +186,7 @@ private:
     void DoUndoRedo(BOOL fUndo);
     void ProcChange(BOOL fReset = FALSE);
 
-    void PerformBlink();
+    void _UpdateStatusBarWidthIfNeeded(uint32_t nPaneTwoWidth);
 
     BOOL VerifyMsg(eVerifyType eType);
 
